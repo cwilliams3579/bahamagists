@@ -6,6 +6,13 @@ end
 ruby '2.4.1'
 gem 'rails', '~> 5.1.2'
 gem 'sqlite3'
+gem 'devise'
+gem 'activeadmin'
+gem 'figaro'
+gem 'fog'
+gem 'fog-aws'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -25,12 +32,6 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'devise'
-gem 'activeadmin'
-gem 'figaro'
-gem 'fog'
-gem 'carrierwave'
-gem 'mini_magick'
 gem 'high_voltage'
 gem 'jquery-rails'
 group :development do

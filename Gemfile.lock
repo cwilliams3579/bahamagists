@@ -421,6 +421,7 @@ DEPENDENCIES
   devise
   figaro
   fog
+  fog-aws
   high_voltage
   hub
   jbuilder (~> 2.5)
