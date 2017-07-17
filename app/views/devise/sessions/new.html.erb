@@ -1,0 +1,36 @@
+<% content_for :title do %>Sign In<% end %>
+<main>
+  <div class="container mx-auto">
+  <div class="card card-form">
+    <div class="card-block">
+      <!--Header-->
+       <div class="form-header">
+           <h3> Sign In</h3>
+       </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="md-form">
+          <i class="fa fa-envelope prefix white-text"></i>
+          <%= f.text_field :email, required: false, autofocus: true, placeholder: "johndoe@gmail.com", class: "form-control white-text" %>
+          <label for="email">Email</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-lock prefix white-text"></i>
+          <%= f.password_field :password, required: true, class: "white-text" %>
+          <label for="password">Password</label>
+        </div>
+        <div class="md-form">
+          <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="md-form">
+          <%= f.button "Sign In", class: "btn btn-block btn-lg btn-rounded btn-outline-white ", data: { disable_with: "<i class='fa fa-spinner fa-5x fa-spin'></i> Processing..."} %>
+        </div>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div><br><br>
+
+</main>
+<%= link_to '', :back, class: "fa fa-hand-o-left fa-2x faa-horfaa-horizontal animated" %>

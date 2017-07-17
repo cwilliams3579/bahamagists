@@ -6,12 +6,14 @@ end
 ruby '2.4.1'
 gem 'rails', '~> 5.1.2'
 gem 'devise'
-gem 'activeadmin'
+gem 'rails_admin'
 gem 'figaro'
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'puma', '~> 3.7'
+gem 'sweet-alert'
+gem 'sweet-alert-confirm'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -35,6 +37,11 @@ gem 'high_voltage'
 gem 'jquery-rails'
 group :development do
   gem 'better_errors'
+  gem 'guard'
+  gem 'guard-bundler', require: false
+  gem 'guard-rails', require: false
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'hirb'
   gem 'hub', :require=>nil
   gem 'rails_layout'
 end
