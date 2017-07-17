@@ -1,0 +1,60 @@
+<main>
+  <div class="card card-form">
+    <div class="card-block">
+      <div class="form-header">
+          <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
+      </div>
+      <%= form_for(@job, :html => { multipart: true }) do |f| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h4>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <div class="md-form">
+    <%= f.file_field :image, class: "btn btn-outline-white white-text" %>
+  </div>
+
+  <div class="md-form">
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "btn btn-outline-white black-text dropdown-toggle"} %>
+    <label for="category_id"></label>
+  </div>
+
+  <div class="md-form">
+    <i class="fa fa-tag prefix white-text"></i>
+    <%= f.text_field :title, class: "form-control white-text" %>
+    <label for="Title">Title</label>
+  </div>
+
+  <div class="md-form">
+    <i class="fa fa-building-o prefix white-text"></i>
+    <%= f.text_field :company, class: "form-control white-text" %>
+    <label for="company">Company</label>
+  </div>
+
+  <div class="md-form">
+    <i class="fa fa-globe prefix white-text" aria-hidden="true"></i>
+    <%= f.text_field :url, class: "form-control white-text"%>
+    <label for="url">http://www.google.com</label>
+  </div>
+
+  <div class="md-form">
+    <i class="fa fa-pencil prefix white-text"></i>
+    <%= f.text_field :description, class: "md-textarea white-text" %>
+    <label for="description">Description</label>
+  </div>
+
+
+  <div class="md-form">
+    <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-spinner fa-5x fa-spin'></i> Processing..."} %>
+  </div>
+<% end %>
+    </div>
+  </div>
+</main>
