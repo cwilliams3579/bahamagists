@@ -131,7 +131,7 @@
                                                                 <td><%= link_to job.title.titleize, job_path(job) %></td>
                                                                 <td><%= link_to job.company.titleize, job_path(job) %></td>
                                                                 <td>
-                                                                    <a href="<%= job.url %>" target="_blank"></a>
+                                                                    <%= link_to job.url, target: :_blank %>
                                                                 </td>
                                                                 <td><%= link_to '', job_path(job), class: "fa fa-eye fa-lg" %></td>
                                                             </tr>
