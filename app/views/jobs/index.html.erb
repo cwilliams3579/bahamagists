@@ -115,11 +115,11 @@
                                                 <table class="table table-hover">
                                                     <!--Table head-->
                                                     <thead>
-                                                        <tr class="primary-color">
-                                                            <th>Job Title</th>
-                                                            <th>Company</th>
-                                                            <th>Website</th>
-                                                            <th>Description</th>
+                                                        <tr class="info-color white-text">
+                                                            <th class="text-center">Job Title</t>
+                                                            <th class="text-center">Company</th>
+                                                            <th class="text-center">Website</th>
+                                                            <th></th>
                                                         </tr>
                                                     </thead>
                                                     <!--/Table head-->
@@ -128,11 +128,11 @@
                                                     <tbody>
                                                         <% @jobs.each do |job| %>
                                                             <tr class="none-top-border">
-                                                                <td><%= link_to job.title.titleize, job_path(job) %></td>
-                                                                <td><%= link_to job.company.titleize, job_path(job) %></td>
-                                                                <td>
+                                                                <td class="text-center"><%= link_to job.title.titleize, job_path(job) %></td>
+                                                                <td class="text-center"><%= link_to job.company.titleize, job_path(job) %></td>
+                                                                <td class="text-center">
                                                                     <%= link_to job.url, target: :_blank %>
-                                                                </td>
+                                                                </t>
                                                                 <td><%= link_to '', job_path(job), class: "fa fa-eye fa-lg" %></td>
                                                             </tr>
                                                         <% end %>
@@ -180,9 +180,9 @@
                         <div class="card card-cascade narrower">
 
                             <!--Card image-->
-                            <div class="view overlay hm-white-slight">
+                            <div class=" overlay hm-white-slight">
                             <% if job.image? %>
-                                <%= image_tag job.image_url if job.image?  %>
+                                <%= link_to image_tag(job.image_url), job_path(job) if job.image?  %>
                             <% else %>
                                  <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="img-fluid jb-img" alt="">
                              <% end %> 
@@ -196,7 +196,7 @@
                             <div class="card-block text-center">
                                 <!--Category & Title-->
                                 <a href="" class="text-muted"><h5><%= job.category_ids %></h5></a>
-                                <h4 class="card-title"><strong><%= job.title.titleize %></strong></h4>
+                                <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
 
                                 <!--Rating-->
                                 <ul class="rating">
