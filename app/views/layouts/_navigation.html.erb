@@ -5,14 +5,10 @@
         <!-- Logo -->
         <li>
             <div class="logo-wrapper waves-light">
-                <a href="#">
-                    <!-- <img src="https://cdn.pixabay.com/photo/2017/03/09/07/05/bahamas-2128613_960_720.jpg" class="img-fluid"> -->
-                    
+                <a href="/">
                 </a>
             </div>
-        </li>
-        <!-- /.Logo -->
-     
+        </li><!-- /.Logo -->
         <!-- Search Form -->
         <li>
             <form class="search-form" role="search">
@@ -20,10 +16,8 @@
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
             </form>
-        </li>
-        <!-- /.Search Form -->
+        </li><!-- /.Search Form -->
         <!-- Side navigation links -->
-        
         <li>
             <ul class="collapsible collapsible-accordion">
                 <li>
@@ -91,8 +85,6 @@
                       </ul>
                   </div>
                 </li>
-               
-
                 <li>
                     <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope"></i> Contact<i class="fa fa-angle-down rotate-icon"></i></a>
                     <div class="collapsible-body">
@@ -109,7 +101,6 @@
                         </ul>
                     </div>
                 </li>
-
                 <li>
                     <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope"></i> About<i class="fa fa-angle-down rotate-icon"></i></a>
                     <div class="collapsible-body">
@@ -127,11 +118,9 @@
                     </div>
                 </li>
             </ul>
-        </li>
-        <!-- /.Side navigation links -->
+        </li><!-- /.Side navigation links -->
         <div class="sidenav-bg mask-strong"></div>
-    </ul>
-    <!-- /.Sidebar navigation -->
+    </ul><!-- /.Sidebar navigation -->
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-toggleable-md  navbar-dark scrolling-navbar double-nav" style=";">
         <!-- SideNav slide-out button -->
@@ -147,20 +136,17 @@
             </ol>
         </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <li class="nav-item">
+                <a href="/posts" class="nav-link"><i class="fa fa-commenting "></i> <span class="hidden-sm-down ">Gist</span></a>
+            </li>
             <li class="nav-item ">
                 <a class="nav-link" href="/jobs"><i class="fa fa-briefcase" aria-hidden="true"></i> <span class="hidden-sm-down ">Jobs</span></a>
             </li>
-
             <li class="nav-item ">
                 <a class="nav-link" href="/products"> <i class="fa fa-home " aria-hidden="true"></i> <span class="hidden-sm-down ">Housing</span></a>
             </li>
-
             <li class="nav-item">
                 <a href="/galleries" class="nav-link"><i class="fa fa-camera-retro "></i> <span class="hidden-sm-down ">Gallery</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a href="/posts" class="nav-link"><i class="fa fa-commenting "></i> <span class="hidden-sm-down ">Gist</span></a>
             </li>
             <% if user_signed_in? %>
               <li class="nav-item dropdown" data-no-turbolink="true">
@@ -183,7 +169,6 @@
               </li>
             <% end %>
         </ul>
-    </nav>
-    <!-- /.Navbar -->
+    </nav><!-- /.Navbar -->
 </header>
 <!-- /.Double navigation -->

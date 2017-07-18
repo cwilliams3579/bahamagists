@@ -167,7 +167,7 @@
             <!--Section: Charts-->
             <section class="section section-intro">
 
-                <h2 class="mb-1 text-center">Manage your offers</h2>
+                <h2 class="mb-1 text-center">Saved Jobs</h2>
 
                 <!--Second row-->
                 <div class="row">
@@ -190,8 +190,9 @@
                             <!--Card content-->
                             <div class="card-block text-center">
                                 <!--Category & Title-->
-                                <a href="" class="text-muted"><h5>Category</h5></a>
-                                <h4 class="card-title"><strong><a href="">Product name</a></strong></h4>
+                                <% @jobs.each do |job| %>
+                                <a href="" class="text-muted"><h5><%= job.category_ids %></h5></a>
+                                <h4 class="card-title"><strong><%= job.title.titleize %></strong></h4>
 
                                 <!--Rating-->
                                 <ul class="rating">
@@ -203,19 +204,18 @@
                                 </ul>
 
                                 <!--Description-->
-                                <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.
+                                <p class="card-text">
+                                    <%= truncate(job.description, length: 250) %>
                                 </p>
 
                                 <!--Card footer-->
                                 <div class="card-footer">
-                                    <span class="left">49$</span>
+                                    <span class="left"><%= job.reviews.count %></span>
                                     <span class="right">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart"><i class="fa fa-eye"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Share"><i class="fa fa-pencil"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Added to Wishlist"><i class="fa fa-remove"></i></a>
-                        </span>
+                                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                    </span>
                                 </div>
-
+                            <% end %>
                             </div>
                             <!--/.Card content-->
 
@@ -224,112 +224,6 @@
 
                     </div>
                     <!--/First column-->
-
-                    <!--Second column-->
-                    <div class="col-md-4 mb-r">
-
-                        <!--Card-->
-                        <div class="card card-cascade narrower">
-
-                            <!--Card image-->
-                            <div class="view overlay hm-white-slight">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(3).jpg" class="img-fluid" alt="">
-                                <a>
-                                    <div class="mask"></div>
-                                </a>
-                            </div>
-                            <!--/.Card image-->
-
-                            <!--Card content-->
-                            <div class="card-block text-center">
-                                <!--Category & Title-->
-                                <a href="" class="text-muted"><h5>Category</h5></a>
-                                <h4 class="card-title"><strong><a href="">Product name</a></strong></h4>
-
-                                <!--Rating-->
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-
-                                <!--Description-->
-                                <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.
-                                </p>
-
-                                <!--Card footer-->
-                                <div class="card-footer">
-                                    <span class="left">89$</span>
-                                    <span class="right">
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart"><i class="fa fa-eye"></i></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Share"><i class="fa fa-pencil"></i></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Added to Wishlist"><i class="fa fa-remove"></i></a>
-                                    </span>
-                                </div>
-
-                            </div>
-                            <!--/.Card content-->
-
-                        </div>
-                        <!--/.Card-->
-
-                    </div>
-                    <!--/Second column-->
-
-                    <!--Third column-->
-                    <div class="col-md-4 mb-r">
-
-                        <!--Card-->
-                        <div class="card card-cascade narrower">
-
-                            <!--Card image-->
-                            <div class="view overlay hm-white-slight">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(2).jpg" class="img-fluid" alt="">
-                                <a>
-                                    <div class="mask"></div>
-                                </a>
-                            </div>
-                            <!--/.Card image-->
-
-                            <!--Card content-->
-                            <div class="card-block text-center">
-                                <!--Category & Title-->
-                                <a href="" class="text-muted"><h5>Category</h5></a>
-                                <h4 class="card-title"><strong><a href="">Product name</a></strong></h4>
-
-                                <!--Rating-->
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star-half-o"></i></li>
-                                </ul>
-
-                                <!--Description-->
-                                <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.
-                                </p>
-
-                                <!--Card footer-->
-                                <div class="card-footer">
-                                    <span class="left">59$</span>
-                                    <span class="right">
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart"><i class="fa fa-eye"></i></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Share"><i class="fa fa-pencil"></i></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Added to Wishlist"><i class="fa fa-remove"></i></a>
-                                    </span>
-                                </div>
-
-                            </div>
-                            <!--/.Card content-->
-
-                        </div>
-                        <!--/.Card-->
-
-                    </div>
-                    <!--/Third column-->
 
                 </div>
                 <!--/Second row-->
