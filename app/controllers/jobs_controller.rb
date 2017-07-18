@@ -25,7 +25,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-
+    @job.user_id = current_user.id
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -67,6 +67,6 @@ class JobsController < ApplicationController
   # end
 
   def job_params
-    params.require(:job).permit(:image, :title, :company, :url, :description)
+    params.require(:job).permit(:image, :title, :company, :url, :description, category_ids: [])
   end  
 end

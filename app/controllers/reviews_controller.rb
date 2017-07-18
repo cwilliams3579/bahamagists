@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.job_id = @job.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @restaurant, notice: 'Review was successfully created.' }
+        format.html { redirect_to jobs_path, notice: 'Review was successfully created.' }
       else
         format.html { render :new }
       end
@@ -47,8 +47,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+  def set_job
+    @job = Job.find(params[:job_id])
   end
 
   def check_user

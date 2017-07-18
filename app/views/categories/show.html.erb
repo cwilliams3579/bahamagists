@@ -1,9 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="container p-top">
+  <div class="card ">
+    <div class="card-block">
+      <div class="form-header">
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
+      </div>
+    <table class="table">
+      <thead>
+          <tr>
+            <th>Category</th>
+            <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row"><%= @category.name.titleize %></th>
+              <td>
+                <%= link_to '', edit_category_path(@category), class: "fa fa-pencil teal-text" %>
+              <td>
+                <%= link_to '', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-times text-danger" %>
+            </td>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= link_to 'Edit', edit_category_path(@category) %> 
 <%= link_to 'Back', categories_path %>

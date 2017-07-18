@@ -1,0 +1,22 @@
+<div class="container p-top-2x">
+    <div class="row mt-2">
+
+        <!--First column-->
+        <div class="col-lg-5 col-md-12 mb-2 center-on-small-only wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+            <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/ipad2.jpg" alt="" class="z-depth-0">
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-lg-7 col-md-12 center-on-small wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+            <h1 class="font-big font-bold font-up mb-1-half text-center"><%= @job.company %></h1>
+            <hr>
+            <h3 class="cyan-text-4 center"><i class="fa fa-briefcase info-text"></i>&nbsp; <%= @job.title.titleize %></h3>
+            <p class="grey-text mb-2" align="justify"> <%= @job.description %></p>
+            <a href="#!" class="btn btn-rounded info-color btn-outline-white waves-effect waves-light"> <i class="fa fa-id-card"></i>&nbsp;&nbsp;Apply For Job</a>
+            <%= link_to "Write a Review", new_job_review_path(@job), class: "btn btn-rounded info-color btn-outline-white waves-effect waves-light" %></a>
+            
+        </div>
+        <!--/Second column-->
+    </div>
+</div>

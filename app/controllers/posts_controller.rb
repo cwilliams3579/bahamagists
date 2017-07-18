@@ -24,6 +24,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
       else
+        flash.now[:errors] = "Please try again"
         format.html { render :new }
       end
     end

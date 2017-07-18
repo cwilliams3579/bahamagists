@@ -1,22 +1,33 @@
-<%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<div class="container p-top-2x">
+  <div class="card card-form">
+    <div class="card-block">
+      <div class="form-header">
+        <i class="fa fa-book fa-2x"></i>
+      </div>
+    <%= form_with(model: category, local: true) do |f| %>
+      <% if category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+
+      <div class="md-form">
+        <i class="fa fa-tag prefix white-text"></i>
+        <%= f.text_field :name, class: "form-control white-text" %>
+        <label for="name">Name</label>
+      </div>
+
+
+        <div class="md-form">
+          <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-spinner fa-5x fa-spin'></i>"} %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :category_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

@@ -22,7 +22,7 @@
   </div>
 
   <div class="md-form">
-    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "btn btn-outline-white black-text dropdown-toggle"} %>
+    <%= f.collection_select :category_ids, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "btn btn-outline-white black-text dropdown-toggle"} %>
     <label for="category_id"></label>
   </div>
 

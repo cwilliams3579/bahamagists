@@ -35,6 +35,10 @@
     margin-top: 100px;
 }
 
+.p-top-2x {
+    margin-top: 200px;
+}
+
 .side-nav .logo-wrapper {
     background-image: url('https://s-media-cache-ak0.pinimg.com/originals/0e/11/c9/0e11c9275d2a098992d445bde15e90a4.jpg') !important;
     background-repeat: no-repeat !important;
@@ -53,4 +57,41 @@
     background-image: url('https://cdn.pixabay.com/photo/2017/03/09/07/05/bahamas-2128613_960_720.jpg') !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+}
+
+.bahama-gradient {
+    background: -webkit-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+background: -o-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+background: -ms-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+background: -moz-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+background: linear-gradient(to right, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+
+}
+
+f-img {
+    height: 10vh;
+    width: 100px !important;
+}
+
+.side-nav .sidenav-bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 240px;
+    width: 100%;
+    z-index: -1;
+    background-attachment: fixed;
+    background-image: url('https://media.giphy.com/media/3o8dp6o9ywrEmsgS8U/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.center {
+    text-align: center !important;
+}
+
+#stars-inline, .stars-inline {
+  display: inline-flex !important;
 }
