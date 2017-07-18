@@ -6,7 +6,6 @@
     background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
 }
 
-
 .or-gradient {
     background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
 }
@@ -16,7 +15,7 @@
 }
 
 .info-text {
-    color:  #5DA4B5 !important;
+    color: #5DA4B5 !important;
 }
 
 .navbar-brand {
@@ -48,7 +47,7 @@
 }
 
 .navbar {
-   background-image: url('https://s-media-cache-ak0.pinimg.com/originals/0e/11/c9/0e11c9275d2a098992d445bde15e90a4.jpg') !important;
+    background-image: url('https://s-media-cache-ak0.pinimg.com/originals/0e/11/c9/0e11c9275d2a098992d445bde15e90a4.jpg') !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
@@ -61,11 +60,10 @@
 
 .bahama-gradient {
     background: -webkit-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
-background: -o-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
-background: -ms-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
-background: -moz-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
-background: linear-gradient(to right, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
-
+    background: -o-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+    background: -ms-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+    background: -moz-linear-gradient(left, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
+    background: linear-gradient(to right, rgb(1, 0, 1) 0%, rgb(0, 117, 138) 61%, rgb(1, 41, 32) 100%);
 }
 
 f-img {
@@ -92,6 +90,17 @@ f-img {
     text-align: center !important;
 }
 
-#stars-inline, .stars-inline {
-  display: inline-flex !important;
+#stars-inline,
+.stars-inline {
+    display: inline-flex !important;
+}
+
+.jb-show {
+    border-style: none;
+    vertical-align: middle !important;
+    height: 40vh !important;
+}
+
+.jb-img {
+    height: 33vh !important;
 }

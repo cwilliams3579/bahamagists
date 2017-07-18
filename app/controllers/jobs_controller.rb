@@ -1,11 +1,10 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-    before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
     # before_action :check_user
-   def index
-    @jobs = Job.all
+  def index
+    @jobs = Job.paginate(:page => params[:page], :per_page => 3)
   end
-
 
   def show
     @reviews = Review.where(job_id: @job.id).order("created_at DESC")
@@ -21,6 +20,7 @@ class JobsController < ApplicationController
   end
 
   def edit
+ 
   end
 
   def create
@@ -29,13 +29,11 @@ class JobsController < ApplicationController
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -46,7 +44,6 @@ class JobsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @restaurant.destroy

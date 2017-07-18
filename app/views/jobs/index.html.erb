@@ -172,6 +172,7 @@
                 <!--Second row-->
                 <div class="row">
 
+                        <% @jobs.each do |job| %>
                     <!--First column-->
                     <div class="col-md-4 mb-r">
 
@@ -180,7 +181,11 @@
 
                             <!--Card image-->
                             <div class="view overlay hm-white-slight">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(4).jpg" class="img-fluid" alt="">
+                            <% if job.image? %>
+                                <%= image_tag job.image_url if job.image?  %>
+                            <% else %>
+                                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="img-fluid jb-img" alt="">
+                             <% end %> 
                                 <a>
                                     <div class="mask"></div>
                                 </a>
@@ -190,7 +195,6 @@
                             <!--Card content-->
                             <div class="card-block text-center">
                                 <!--Category & Title-->
-                                <% @jobs.each do |job| %>
                                 <a href="" class="text-muted"><h5><%= job.category_ids %></h5></a>
                                 <h4 class="card-title"><strong><%= job.title.titleize %></strong></h4>
 
@@ -210,20 +214,19 @@
 
                                 <!--Card footer-->
                                 <div class="card-footer">
-                                    <span class="left"><%= job.reviews.count %></span>
+                                    <span class="left"><%= job.reviews.count %> reviews(s)</span>
                                     <span class="right">
                                     <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
                                     </span>
                                 </div>
-                            <% end %>
                             </div>
                             <!--/.Card content-->
-
                         </div>
                         <!--/.Card-->
 
                     </div>
                     <!--/First column-->
+                            <% end %>
 
                 </div>
                 <!--/Second row-->
@@ -231,20 +234,8 @@
             </section>
             <!--/Section: Charts-->
 
-            <!--Section: Notifications-->
-            
-            <!--/Section: Notifications-->
-
-            <!--Classic admin cards-->
-            <section class="section section-intro">
-
-                <!--First row-->
-                
-                <!--/First row-->
-
-            </section>
-            <!--/Classic admin cards-->
-
-
         </div>
-<%= link_to 'Post a new job', new_job_path %>
+            <div class="col-md-2 mx-auto">
+                 <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
+             </div>
+<%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
