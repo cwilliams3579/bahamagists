@@ -11,15 +11,18 @@
       <% if post.comments.any? %>
         <p>comments: <%= render post.comments %></p>
       <% end %>
-
       <div class="row">
         <div class="pull-right liking">
           <%= link_to like_post_path(post, like: true), method: :post do %>
-          <i class="fa fa-thumbs-up fa-2x faa-vertical animated-hover"></i>
-          <% end %> <span class="badge white text-success"><%= post.thumbs_up_total %></span>&nbsp;&nbsp;
-          <%= link_to like_post_path(post, like: false), method: :post do %>
-          <i class="fa fa-thumbs-down fa-2x faa-vertical animated-hover"></i>
-          <% end %> <span class="badge white text-danger"><%= post.thumbs_down_total %></span>
+            <i class="fa fa-thumbs-up fa-2x faa-vertical animated-hover"></i>
+          <% end %> 
+          <span class="badge white text-success">
+            <%= post.thumbs_up_total %>
+          </span>&nbsp;&nbsp;
+            <%= link_to like_post_path(post, like: false), method: :post do %>
+              <i class="fa fa-thumbs-down fa-2x faa-vertical animated-hover"></i>
+            <% end %> 
+          <span class="badge white text-danger"><%= post.thumbs_down_total %></span>
         </div>
       </div><br>
       <% if logged_in? && (current_user == post.user || current_user.admin?) %>

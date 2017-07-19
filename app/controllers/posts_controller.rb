@@ -7,12 +7,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.all
+    @comments = @post.comments#.paginate(page: params[:page], per_page: 4)
   end
 
   def new
     @post = Post.new
-    
   end
 
   def edit

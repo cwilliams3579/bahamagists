@@ -59,12 +59,8 @@
                                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                                         
                                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad autem vel eum iure reprehenderit qui in ea minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-                                    
-                                    
-                                    
                                 </div>
                                 <!--/Post text-->
-                      
                             </div>
                             
                         </div>
@@ -72,16 +68,13 @@
                         
                     </section>
                     <!--/.Section: Post-->
-
-                    
-                    
                     <!--Section: Comments list-->
                     <section class="wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
                         
                         <!--Main wrapper-->
                         <div class="comments-list text-left">
                             <div class="section-heading">
-                                <h3 class="mt-2 mb-3">Comments <span class="badge info-color"><%= @posts.count %></span></h3>
+                                <h3 class="mt-2 mb-3">Comments <span class="badge info-color"><%= @post.comments.count %></span></h3>
                             </div>
                             <!--First row-->
                             <div class="row">
@@ -99,37 +92,35 @@
                                     <a><h3 class="user-name"><%= @post.user.full_name.titleize %></h3></a>
                                     <div class="card-data">
                                         <ul>
-                                            <li class="comment-date"><i class="fa fa-clock-o"></i> <%= @posts.count %></li>
+                                            <li class="comment-date"><i class="fa fa-clock-o"></i> <%#= time_ago_in_words(@comment.created_at) %></li>
                                         </ul>
                                     </div>
-                                    <p class="comment-text"><%#= simple_format(@post.comment.content) %></p>
+                                    <% if @post.comments != 0 %>
+                                        <p class="comment-text"></p>
+                                        <%= render partial: 'comments/comment', object: @comments %>   
+                                    <% end %>
                                 </div>
                                 <!--/.Content column-->
                             </div>
                             <!--/.First row-->
-    
-                            
                         </div>
                         <!--/.Main wrapper-->
-
                     </section>
                     <!--/Section: Comments list-->
-                    
                     <hr class="between-sections wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
-                    
                     <!--Section: Leave a reply (Logged In User)-->
                     <section class="wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
 
                         <!--Leave a reply form-->
         <div class="reply-form">
             <h1 class="section-heading">Leave a reply </h1>
-            <p class="text-center">(<%= current_user.first_name %>)</p>
+            <p class="text-center">(<%= current_user.first_name.capitalize %>)</p>
             <!--Third row-->
-            <%= form_for([@post, @comment], remote: true, :html => {class: "form-horizontal",  role: "form"}) do |f| %>
+            <%= form_for([@comment, @post], remote: true, :html => {class: "form-horizontal",  role: "form"}) do |f| %>
             <div class="row">
                 <!--Image column-->
                 <div class="col-sm-2 col-12">
-                    <%= link_to gravatar_for(current_user), user_path(@user) %>
+                    <%= gravatar_for(current_user) %>
                 </div>
                 <!--/.Image column-->
 
@@ -142,7 +133,7 @@
                 <!--Content column-->
 
                 <div class="text-center">
-                    <%= f.button "Submit", class: "btn btn-danger", data: { send: "message" } %>
+                    <%= f.button "Submit", class: "btn btn-outline-white btn-rounded info-color", data: { send: "message" } %>
                 </div>
                 <!--/.Content column-->
               </div>

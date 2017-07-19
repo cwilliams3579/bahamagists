@@ -118,7 +118,7 @@
 
                                                     <!--Table body-->
                                                     <tbody>
-                                                        <% @jobs.each do |job| %>
+                                                        <% @jobs.each_with_index do |job| %>
                                                             <tr class="none-top-border">
                                                                 <td class="text-center"><%= link_to job.title.titleize, job_path(job) %></td>
                                                                 <td class="text-center"><%= link_to job.company.titleize, job_path(job) %></td>
@@ -187,7 +187,11 @@
                             <!--Card content-->
                             <div class="card-block text-center">
                                 <!--Category & Title-->
-                                <a href="" class="text-muted"><h5><%= job.job_categories.name %></h5></a>
+                                <% if job.categories.any? %>
+                                <p><%=  @job_categories %></p>
+                            <% end %>
+                                    <a href="" class="text-muted"><h5><%#= job.categories.name %></h5></a>
+                                <%# end %>
                                 <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
 
                                 <!--Rating-->
