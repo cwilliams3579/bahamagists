@@ -45,7 +45,7 @@
           <p class="text-center"></p>
           <div class="md-form">
             <i class="fa fa-lock prefix white-text"></i>
-            <%= f.password_field :current_password, class: 'form-control', placeholder: "You must enter your current password to make changes" %>
+            <%= f.password_field :current_password, class: 'form-control white-text', placeholder: "You must enter your current password to make changes" %>
           </div>
         </fieldset>
         <div class="md-form">
@@ -54,8 +54,8 @@
       <% end %>
       </div>
       <div class="md-form text-center">
-      <h3>Cancel Account</h3>
-      <p>Unhappy? We'll be sad to see you go.</p>
+      <h3 class="white-text h3-responsive">Cancel Account</h3>
+      <p class="white-text">Unhappy? We'll be sad to see you go.</p>
       <%= link_to "", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'fa fa-trash fa-lg text-danger' %>
     </div>
   </div>

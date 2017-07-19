@@ -16,12 +16,12 @@
                 </ul>
                 </div>
             <% end %>
-            <div id="star-rating" class="stars-inline" data-score= <%= @review.rating %> ></div>
+            <div id="star-rating" class="stars-inline" data-score= <%= review.rating %> ></div>
             <div class="md-form">
-                <%= f.text_field :rating, class: "form-control" %>
+                <%= f.text_field :rating, class: "form-control text-white" %>
             </div>
             <div class="md-form">
-                <%= f.text_area :description, class: "md-textarea" %>
+                <%= f.text_area :description, class: "md-textarea text-white" %>
             </div>
             <div class="form-group">
                 <%= f.button "Write Review", class: "btn btn-block btn-outline-white btn-rounded", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>Processing..."} %>

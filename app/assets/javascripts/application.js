@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require rails-ujs
-// require turbolinks
+//= require Chart.bundle
+//= require chartkick
+//= require jquery.turbolinks
+//= require turbolinks
+//= require turbolinks-compatibility
 //= require bootstrap-sprockets
 //= require_tree .

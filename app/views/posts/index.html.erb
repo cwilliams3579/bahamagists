@@ -1,4 +1,4 @@
-
+<% content_for :title do %>Gist<% end %>
         <div class="container-fluid">
            
             <!-- Cover photo -->
@@ -110,7 +110,9 @@
 
     </div>
 
-</div></div>
+</div>
+
+</div>
 
                                 <div class="mdb-lightbox no-margin" data-pswp-uid="1">
 
@@ -895,4 +897,6 @@
             <!--/ Magazine -->
             
         </div>
-<%= link_to 'New Post', new_post_path %>
+        <div class="center">
+            <%= link_to 'New Post', new_post_path, class: "btn btn-outline-white info-color btn-rounded z-depth-5" %>
+        </div>

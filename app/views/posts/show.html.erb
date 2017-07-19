@@ -11,8 +11,7 @@
                             <div class="col-md-12">
                                
                                 <!--Featured image-->
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/12-col/img%20(49).jpg" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-
+                                <%= image_tag @post.image_url, class: "img-fluid" if @post.image? %>
                                 <!--Post data-->
                                 <div class="jumbotron wow fadeIn malibu" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
                                     <h2>Six amazing months in Los Angeles</h2>
@@ -61,15 +60,7 @@
                                         
                                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad autem vel eum iure reprehenderit qui in ea minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
                                     
-                                    <!--Pictures in post-->
-                                    <div class="post-pictures">
-                                       
-                                         <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/12-col/img%20(47).jpg">
-                                         <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/12-col/img%20(42).jpg">
-                                         <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/12-col/img%20(45).jpg">
-                                        
-                                    </div>
-                                    <!--/.Pictures in post-->
+                                    
                                     
                                 </div>
                                 <!--/Post text-->
@@ -82,106 +73,7 @@
                     </section>
                     <!--/.Section: Post-->
 
-                    <!--Related posts-->
-                    <section class="related-posts-carousel wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
-                        
-                        <div class="row">
-                            
-                            <div class="col-md-12">
-                               
-                                <h2 class="text-center">you might also like</h2>
-                                
-                                <!--Carousel Wrapper-->
-                                <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-                                  
-                                    <!--Indicators-->
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                                        <li data-target="#multi-item-example" data-slide-to="1" class=""></li>
-                                    </ol>
-                                    <!--/.Indicators-->
-                                   
-                                    <!--Slides-->
-                                    <div class="carousel-inner" role="listbox">
-
-                                        <!--First slide-->
-                                        <div class="carousel-item active">
-
-                                            <div class="col-md-4">
-                                                <a href="#!" class="black-text">
-                                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(104).jpg" alt="Card image cap">
-                                                    <div class="carousel-text">
-                                                        <h5>Autumn flower dress - outfit</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 hidden-sm-down">
-                                                <a href="#!" class="black-text">
-                                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(45).jpg" alt="Card image cap">
-                                                    <div class="carousel-text">
-                                                        <h5>Monthly car trip around the USA</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 hidden-sm-down">
-                                                <a href="#!" class="black-text">
-                                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(61).jpg" alt="Card image cap">
-                                                    <div class="carousel-text">
-                                                        <h5>My last trip to Paris</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                        <!--/.First slide-->
-
-                                        <!--Second slide-->
-                                        <div class="carousel-item">
-
-                                            <div class="col-md-4">
-                                                <a href="#!" class="black-text">
-                                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(8).jpg" alt="Card image cap">
-                                                    <div class="carousel-text">
-                                                        <h5>Big city life</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 hidden-sm-down">
-                                                <a href="#!" class="black-text">
-                                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
-                                                    <div class="carousel-text">
-                                                        <h5>Weekend in LA</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 hidden-sm-down">
-                                                <a href="#!" class="black-text">
-                                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Things/4-col/img%20(6).jpg" alt="Card image cap">
-                                                    <div class="carousel-text">
-                                                        <h5>Change living room with accessories</h5>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                        <!--/.Second slide-->
-
-                                    </div>
-                                    <!--/.Slides-->
-
-                                </div>
-                                <!--/.Carousel Wrapper-->
-                                
-                            </div>
-                            
-                        </div>
-                        
-                    </section>
-                    <!--/.Related posts-->
+                    
                     
                     <!--Section: Comments list-->
                     <section class="wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
@@ -189,33 +81,33 @@
                         <!--Main wrapper-->
                         <div class="comments-list text-left">
                             <div class="section-heading">
-                                <h3 class="mt-2 mb-3">Comments <span class="badge info-color">3</span></h3>
+                                <h3 class="mt-2 mb-3">Comments <span class="badge info-color"><%= @posts.count %></span></h3>
                             </div>
                             <!--First row-->
                             <div class="row">
                                 <!--Image column-->
                                 <div class="col-sm-2 col-12">
+                                <% if @post.user.image? %>
+                                    <%=  gravatar_for(@post.user) %>
+                                <% else %>
                                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg">
+                                <% end %>
                                 </div>
                                 <!--/.Image column-->
                                 <!--Content column-->
                                 <div class="col-sm-10 col-12">
-                                    <a><h3 class="user-name">John Doe</h3></a>
+                                    <a><h3 class="user-name"><%= @post.user.full_name.titleize %></h3></a>
                                     <div class="card-data">
                                         <ul>
-                                            <li class="comment-date"><i class="fa fa-clock-o"></i> 05/10/2015</li>
+                                            <li class="comment-date"><i class="fa fa-clock-o"></i> <%= @posts.count %></li>
                                         </ul>
                                     </div>
-                                    <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <p class="comment-text"><%#= simple_format(@post.comment.content) %></p>
                                 </div>
                                 <!--/.Content column-->
                             </div>
                             <!--/.First row-->
-                            
-                            
-                            
-                            
-                            
+    
                             
                         </div>
                         <!--/.Main wrapper-->
@@ -229,36 +121,35 @@
                     <section class="wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
 
                         <!--Leave a reply form-->
-                        <div class="reply-form">
-                            <h1 class="section-heading">Leave a reply </h1>
-                            <p class="text-center">(Logged In User)</p>
+        <div class="reply-form">
+            <h1 class="section-heading">Leave a reply </h1>
+            <p class="text-center">(<%= current_user.first_name %>)</p>
+            <!--Third row-->
+            <%= form_for([@post, @comment], remote: true, :html => {class: "form-horizontal",  role: "form"}) do |f| %>
+            <div class="row">
+                <!--Image column-->
+                <div class="col-sm-2 col-12">
+                    <%= link_to gravatar_for(current_user), user_path(@user) %>
+                </div>
+                <!--/.Image column-->
 
-                            <!--Third row-->
-                            <div class="row">
-                                <!--Image column-->
-                                <div class="col-sm-2 col-12">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg">
-                                </div>
-                                <!--/.Image column-->
+                <!--Content column-->
+                <div class="col-sm-10 col-12">
+                    <div class="md-form">
+                        <%= f.text_area :content, data: { behavior: "room_speaker" }, class: "md-textarea" %>
+                    </div>
+                </div>
+                <!--Content column-->
 
-                                <!--Content column-->
-                                <div class="col-sm-10 col-12">
-                                    <div class="md-form">
-                                        <textarea type="text" id="form8" class="md-textarea"></textarea>
-                                        <label for="form8">Your message</label>
-                                    </div>
-
-                                </div>
-
-                                <div class="text-center">
-                                    <button class="btn info-color btn-outline-white waves-effect waves-light">Submit</button>
-                                </div>
-                                <!--/.Content column-->
-
-                            </div>
-                            <!--/.Third row-->
-                        </div>
-                        <!--/.Leave a reply form-->
+                <div class="text-center">
+                    <%= f.button "Submit", class: "btn btn-danger", data: { send: "message" } %>
+                </div>
+                <!--/.Content column-->
+              </div>
+            <% end %>
+            <!--/.Third row-->
+        </div>
+        <!--/.Leave a reply form-->
 
                     </section>
                     <!--/Section: Leave a reply (Logged In User)-->

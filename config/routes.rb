@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :comments
   root to: 'visitors#index'
   resources :jobs do
     resources :reviews, except: [:show, :index]
