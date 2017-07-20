@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.paginate(:page => params[:page], :per_page => 3)
     @categories = Category.all
+    @reviews = Review.all
   end
 
   def show

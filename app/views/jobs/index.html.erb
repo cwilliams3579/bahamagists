@@ -187,21 +187,13 @@
                             <!--Card content-->
                             <div class="card-block text-center">
                                 <!--Category & Title-->
-                                <% if job.categories.any? %>
-                                    <a href="" class="text-muted"><h5><%= job.job_categories.name %></h5></a>
                                 
-                                <% end %>
-                                <%# end %>
                                 <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
 
                                 <!--Rating-->
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star-o"></i></li>
-                                </ul>
+                                <!--<ul class="rating">
+                                    <div class="star-rating" data-score= <%#=  %> ></div>
+                                </ul> -->
 
                                 <!--Description-->
                                 <p class="card-text">
@@ -235,13 +227,3 @@
                  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
              </div>
 <%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
-
-<script type="text/javascript">
-  $('.review-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score')
-    }
-  });
-</script>
