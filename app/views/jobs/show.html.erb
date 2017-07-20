@@ -9,29 +9,42 @@
                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="img-fluid z-depth-5 jb-show view hm-zoom" alt="">
             <% end %>
             <br>
-            <div class="center">
-                <%= render @job.reviews %>
-            </div>
-            
+					<h4 class="font-big font-bold font-up mb-1-half text-center"><%= @job.company %></h4>
         </div>
         <!--/First column-->
         <!--Second column-->
         <div class="col-lg-7 col-md-12 center-on-small wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
-            <h1 class="font-big font-bold font-up mb-1-half text-center"><%= @job.company %></h1>
-            <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-            <p>Based on <%= @reviews.count %> review(s)</p>
+
+
+            <h3 class="cyan-text-4 center"> <%= @job.title.titleize %></h3>
             <hr>
-            <h3 class="cyan-text-4 center"><i class="fa fa-briefcase info-text"></i>&nbsp; <%= @job.title.titleize %></h3>
-            <%#= @categories.name %>
             <p class="grey-text mb-2" align="justify"> <%= @job.description %></p>
-            <a href="#!" class=" waves-effect waves-light"> 
+            <a href="#!" class=" waves-effect waves-light">
                 <i class="fa fa-id-card fa-2x grey-text"></i>&nbsp;&nbsp;
             </a>
+            <% if current_user || current_user.admin? %>
+                <%= link_to "", job_path(@job), method: :delete, data: { confirm: "Are you sure?", class: "fa fa-trash fa-2x text-danger" } %>
+            <% end %><br>
+						<div class="center">
+							<% if @reviews.any? %>
+            	<div class="star-rating" data-score= <%= @avg_rating %> ></div>
+              <p>Based on <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %> </p>
+            <% end %>
+						</div>
         </div>
-    <br>
-    
         <!--/Second column-->
+        <br>
     </div>
+    <hr>
+    <% if @reviews.any? %>
+        <div class="left">
+            <%= render @job.reviews %>
+        </div>
+			<% else %>
+        <h5 class="h5-responsive">
+          No reviews yet!
+        </h5>
+			<% end %>
 </div>
 <script type="text/javascript">
   $('.star-rating').raty({

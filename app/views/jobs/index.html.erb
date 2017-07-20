@@ -33,16 +33,10 @@
                                             <div class="col-md-6">
 
                                                 <!--Date select-->
-                                                <h4><span class="badge big-badge info-color">Data range</span></h4>
-                                                <div class="select-wrapper mdb-select colorful-select dropdown-primary"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-8b597812-7aa0-16ed-86bc-b96efd662588" value="Choose time period"><ul id="select-options-8b597812-7aa0-16ed-86bc-b96efd662588" class="dropdown-content select-dropdown "><li class="disabled "><span>Choose time period</span></li><li class=""><span>Today</span></li><li class=""><span>Yesterday</span></li><li class=""><span>Last 7 days</span></li><li class=""><span>Last 30 days</span></li><li class=""><span>Last week</span></li><li class=""><span>Last month</span></li></ul><select class="mdb-select colorful-select dropdown-primary initialized">
-                                                    <option value="" disabled="" selected="">Choose time period</option>
-                                                    <option value="1">Today</option>
-                                                    <option value="2">Yesterday</option>
-                                                    <option value="3">Last 7 days</option>
-                                                    <option value="3">Last 30 days</option>
-                                                    <option value="3">Last week</option>
-                                                    <option value="3">Last month</option>
-                                                </select></div>
+                                                <h4><span class="badge big-badge info-color">Categories</span></h4>
+                                                    <% Category.all.each do |category| %>
+                                                        <%= link_to category.name, category_path(category) %>
+                                                    <% end %>
                                                 <br>
 
                                                 <!--Date pickers-->
@@ -202,8 +196,7 @@
 
                                 <!--Card footer-->
                                 <div class="card-footer">
-                                    <span class="left"><%= job.reviews.count %> reviews(s)</span>
-                                    <span class="right">
+                                    <span class="left"><%= job.reviews.count %> <%= "reviews".pluralize(job.reviews.count) %> </span>                                    <span class="right">
                                     <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
                                     </span>
                                 </div>
@@ -221,9 +214,10 @@
 
             </section>
             <!--/Section: Charts-->
-
         </div>
-            <div class="col-md-2 mx-auto">
-                 <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
-             </div>
-<%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
+        <div class="col-md-2 mx-auto">
+            <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
+        </div><br>
+				<div class="center">
+					<%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
+				</div>

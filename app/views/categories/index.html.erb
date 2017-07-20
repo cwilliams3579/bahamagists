@@ -1,7 +1,4 @@
-
-
-
-<div class="container p-top">
+<div class="container p-top-5x p-bottom-5x">
   <div class="card">
     <div class="card-block">
     <div class="form-header">
@@ -9,14 +6,12 @@
     </div>
       <table class="table">
         <thead>
-          <% @categories.each do |category| %>
-            <tr>
-              <th>Category</th>
-            </tr>
+           
           </thead>
           <tbody>
+          <% @categories.each do |category| %>
             <tr>
-                <th scope="row"><%= category.name %></th>
+                <th class="center" scope="row"><%= category.name %></th>
             </tr>
           <% end %>
         </tbody>

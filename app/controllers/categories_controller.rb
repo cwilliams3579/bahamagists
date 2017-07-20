@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :require_admin, except: [:index, :show]
 
@@ -7,6 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @jobs = Job.all
   end
 
   def new

@@ -5,7 +5,6 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.paginate(:page => params[:page], :per_page => 3)
     @categories = Category.all
-    @reviews = Review.all
   end
 
   def show
@@ -55,6 +54,7 @@ class JobsController < ApplicationController
   end
 
   private
+  
   def set_job
     @job = Job.find(params[:id])
   end
