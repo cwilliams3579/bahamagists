@@ -21,7 +21,7 @@
             <%= image_tag(@post.image_url) if @post.image? %><br>
             <div class="text-center">
               <i class="fa fa-camera-retro prefix white-text"></i>
-              <%= f.file_field :image %>
+              <%= f.file_field :image, class: "white-text" %>
             </div>
             <div class="f-img">
               <%= f.hidden_field :image_cache %>

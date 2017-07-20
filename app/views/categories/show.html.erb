@@ -6,15 +6,15 @@
           <%= @category.name.titleize %>
           <% if user_signed_in? || current_user.admin? %>
             <%= link_to '', edit_category_path(@category), class: "fa fa-pencil white-text pull-right" %>
-          <% end %> 
+          <% end %>
         </div>
       </div>
     <table class="table">
       <thead>
- 
+
       </thead>
       <tbody>
-        <% Job.all.each do |job| %>
+        <% Job.select do |job| %>
           <tr>
             <th scope="row"></th>
               <td>
