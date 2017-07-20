@@ -188,9 +188,9 @@
                             <div class="card-block text-center">
                                 <!--Category & Title-->
                                 <% if job.categories.any? %>
-                                <p><%=  @job_categories %></p>
-                            <% end %>
-                                    <a href="" class="text-muted"><h5><%#= job.categories.name %></h5></a>
+                                    <a href="" class="text-muted"><h5><%= job.job_categories.name %></h5></a>
+                                
+                                <% end %>
                                 <%# end %>
                                 <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
 
@@ -235,3 +235,13 @@
                  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
              </div>
 <%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
+
+<script type="text/javascript">
+  $('.review-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>

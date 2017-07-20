@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :set_job
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :check_user, only: [:edit, :update, :destroy]
 
 

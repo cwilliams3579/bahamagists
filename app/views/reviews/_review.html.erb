@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="review-rating" data-score=<%= review.rating %>></div>
+<p><%= review.description  %></p>
+  <% if user_signed_in?  %>
+    <% if review.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_job_review_path(review.job, review) %>
+      <%= link_to 'Delete',  job_review_path(review.job, review), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+
+  <% end %>
+</div>
+
+  <script type="text/javascript">
+  $('.review-rating').raty({
+    path: 'https://s3.amazonaws.com/yelp-clone-rails/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>

@@ -1,3 +1,4 @@
+
 <div class="container p-top-2x">
     <div class="row mt-2">
         <!--First column-->
@@ -6,20 +7,26 @@
                 <%= image_tag @job.image, class: "img-fluid z-depth-5 jb-show view hm-zoom" if @job.image?  %>
             <% else %>
                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="img-fluid z-depth-5 jb-show view hm-zoom" alt="">
-            <% end %> 
+            <% end %>
+            <br>
+            <div class="center">
+                <%= render @job.reviews %>
+            </div>
+            
         </div>
         <!--/First column-->
         <!--Second column-->
         <div class="col-lg-7 col-md-12 center-on-small wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
             <h1 class="font-big font-bold font-up mb-1-half text-center"><%= @job.company %></h1>
-            <% @reviews.each do |review| %>
-                <div class="star-rating fa" data-score= <%= review.rating %> ></div>
-            <% end %>
+                <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+                <p>Based on <%= @reviews.count %> review(s)</p>
                 <hr>
                 <h3 class="cyan-text-4 center"><i class="fa fa-briefcase info-text"></i>&nbsp; <%= @job.title.titleize %></h3>
                 <p class="grey-text mb-2" align="justify"> <%= @job.description %></p>
-                <a href="#!" class="btn btn-rounded info-color btn-outline-white waves-effect waves-light"> <i class="fa fa-id-card"></i>&nbsp;&nbsp;Apply For Job</a>
-            <%= link_to "Write a Review", new_job_review_path(@job), class: "btn btn-rounded info-color btn-outline-white waves-effect waves-light" %></a>
+                <a href="#!" class=" waves-effect waves-light"> <i class="fa fa-id-card fa-2x grey-text"></i>&nbsp;&nbsp;</a>
+            <%= link_to "", new_job_review_path(@job), class: "fa fa-pencil fa-2x grey-text waves-effect waves-light" %></a>
+            <%= link_to "", job_path(@job), method: :delete,
+    data: { confirm: "Are you sure you want to delete this job?" }, class: "fa fa-trash fa-2x grey-text" %>
         </div>
         <!--/Second column-->
     </div>

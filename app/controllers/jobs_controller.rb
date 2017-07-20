@@ -1,9 +1,10 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
     # before_action :check_user
   def index
     @jobs = Job.paginate(:page => params[:page], :per_page => 3)
+    @categories = Category.all
   end
 
   def show
@@ -46,7 +47,7 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @restaurant.destroy
+    @job.destroy
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
     end
