@@ -16,7 +16,7 @@
             <%= f.text_area :content, class: "md-textarea" %>
         </div>
         <div class="center">
-            <%= f.button "Post Comment", class: "btn btn-outline-white btn-rounded info-color", id: "btn-comment", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>"} %>
+            <%= f.button "Post Comment", class: "btn btn-outline-white btn-rounded info-color", id: "btn-comment", remote: true, data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>"} %>
         </div>
     <% end %>
 

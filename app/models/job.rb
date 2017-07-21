@@ -9,4 +9,5 @@ class Job < ApplicationRecord
   validates :description, presence: true, length: {minimum: 10}
   validates :user_id, presence: true
   default_scope -> { order(updated_at: :desc) }
+
 end

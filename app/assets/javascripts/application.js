@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap-sprockets
 //= require jquery
 //= require rails-ujs
 //= require Chart.bundle
@@ -17,9 +18,8 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require turbolinks-compatibility
-//= require bootstrap-sprockets
 //= require_tree .
 
-$(function() {
-  $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
-});
+// $(function() {
+//   $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+// });

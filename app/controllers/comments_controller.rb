@@ -16,6 +16,9 @@ class CommentsController < ApplicationController
         format.html { redirect_to @post }
         format.js # render comments/create.js.erb
       end
+    else
+      flash[:danger] = "You must be signed in to perform that action!"
+      redirect_to root_url
     end
 
   end

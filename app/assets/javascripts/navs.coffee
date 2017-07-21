@@ -1,3 +1,3 @@
 $(document).on "page:load", ->
-  $('#nav-bar').click ->
-    $('#nav-link').fadeToggle()
+  $('#dropdownMenu1').click ->
+    $('#nav-link').toggle()
