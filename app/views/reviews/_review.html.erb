@@ -3,7 +3,7 @@
 <p><%= review.description  %></p>
   <% if user_signed_in?  %>
     <% if review.user_id == current_user.id %>
-      <%= link_to "", new_job_review_path(@job),
+      <%= link_to "", edit_job_review_path(@job),
             class: "fa fa-pencil fa-lg grey-text waves-effect waves-light" %>&nbsp; &nbsp;
       <%= link_to "", job_path(@job), method: :delete,
             data: { confirm: "Are you sure you want to delete this job?" },

@@ -21,7 +21,7 @@
     <%= f.file_field :image, class: "btn btn-outline-white white-text" %>
   </div>
 
-  <div class="col center wh-txt">
+  <div class="col center">
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "checkbox-inline white-text"} %>
     <label for="category_ids"></label>
   </div>

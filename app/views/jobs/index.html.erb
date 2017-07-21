@@ -1,6 +1,6 @@
 <% content_for :title do %>Jobs<% end %>
 <div class="container-fluid p-top-2x">
-          
+
             <!--Section: Main Chart-->
             <section class="section">
 
@@ -170,8 +170,8 @@
                             <% if job.image? %>
                                 <%= link_to image_tag(job.image_url), job_path(job) if job.image?  %>
                             <% else %>
-                                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="img-fluid jb-img" alt="">
-                             <% end %> 
+                                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="jb-img" alt="">
+                             <% end %>
                                 <a>
                                     <div class="mask"></div>
                                 </a>
@@ -181,7 +181,7 @@
                             <!--Card content-->
                             <div class="card-block text-center">
                                 <!--Category & Title-->
-                                
+
                                 <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
 
                                 <!--Rating-->
