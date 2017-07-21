@@ -53,7 +53,7 @@
 }
 
 .page-footer {
-    background-image: url('https://cdn.pixabay.com/photo/2017/03/09/07/05/bahamas-2128613_960_720.jpg') !important;
+    background-image: url('https://s3.amazonaws.com/bahamagist/app_images/bahama-face.jpg') !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
@@ -80,10 +80,10 @@ f-img {
     min-width: 240px;
     width: 100%;
     z-index: -1;
-    background-attachment: fixed;
-    background-image: url('https://media.giphy.com/media/3o8dp6o9ywrEmsgS8U/giphy.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-attachment: fixed;
+    // background-image: url('https://media.giphy.com/media/3o8dp6o9ywrEmsgS8U/giphy.gif');
+    // background-repeat: no-repeat;
+    // background-size: cover;
 }
 
 .center {

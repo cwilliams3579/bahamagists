@@ -1,0 +1,23 @@
+<div class="container">
+    <%= form_for [@post, @comments.build], remote: true do |f| %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+        <div class="md-form">
+            <%= f.text_area :content, class: "md-textarea" %>
+        </div>
+        <div class="center">
+            <%= f.button "Post Comment", class: "btn btn-outline-white btn-rounded info-color", id: "btn-comment", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>"} %>
+        </div>
+    <% end %>
+
+</div>

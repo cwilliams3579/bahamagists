@@ -9,14 +9,15 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
+
     if @comment.save
-      # ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
-      flash[:notice] = "Comment was created successfully"
-      redirect_to post_path(@post)
-    else
-      flash[:danger] = "Comment was not created"
-      redirect_to :back
+
+      respond_to do |format|
+        format.html { redirect_to @post }
+        format.js # render comments/create.js.erb
+      end
     end
+
   end
 
   private

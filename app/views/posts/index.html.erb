@@ -114,10 +114,10 @@
 
                             <!--Post data-->
                             <h6 class="text-muted mb-1"><%= post.created_at.strftime("%B %d, %Y") %></h6>
-                            <h4 class="font-up mb-1"><a href="#!" class="text-muted font-thin"><%= post.title %></a></h4>
+                            <h4 class="font-up mb-1"><a href="#!" class="text-muted font-thin"><%= link_to post.title, post_path(post), class: "text-muted font-thin" %></a></h4>
 
                             <!--Image-->
-                            <div class="view hm-white-slight mb-1-half">
+                            <div class=" hm-white-slight mb-1-half">
                                 <% if post.image? %>
                                     <%= link_to image_tag(post.image_url), post_path(post) %>
                                 <% else %>
@@ -127,7 +127,7 @@
                             </div> <br>
 
                             <!--Excerpt-->
-                            <p class="text-muted font-thin"><%= truncate(post.content, length: 350) %></p>
+                            <p class="text-muted font-thin"><%= truncate(post.content, escape: false, length: 350) %></p>
 
                             <!--Button-->
                             <div class="text-center">
