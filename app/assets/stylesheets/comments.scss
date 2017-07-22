@@ -5,3 +5,17 @@
 #comments-section {
   display: none;
 }
+
+.comments-list .row, .reply-form .row {
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.comments-list .comment-date, .reply-form .comment-date {
+    color: grey;
+    float: right;
+}
+
+.reply {
+  display: inline !important;
+}

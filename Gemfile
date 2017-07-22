@@ -22,6 +22,7 @@ gem 'groupdate'
 gem 'rack-cors'
 gem 'turbolinks', '~> 5'
 gem 'jquery-turbolinks'
+gem 'acts_as_favable'
 gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

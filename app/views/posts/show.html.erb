@@ -72,42 +72,43 @@
                     <!--Section: Comments list-->
                     <section class="wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
 
-                        <!--Main wrapper-->
 
+                        <!--Main wrapper-->
                         <div class="comments-list text-left">
                             <div class="section-heading">
                                 <h3 class="mt-2 mb-3"><span class="badge info-color"><%= @post.comments.count %></span> <%= link_to 'Comment'.pluralize, "#", id: "comments-link" %> </h3>
                             </div>
-                            <!--First row-->
-                            <div id="comments-section">
-                                <% @comments.each do |comment| %>
-                                <div class="row">
-                                    <!--Image column-->
-                                    <div class="col-sm-2 col-12">
-                                        <%= gravatar_for(comment.user, size: 150) %>
-                                    </div>
-                                    <!--/.Image column-->
-                                    <!--Content column-->
-                                    <div class="col-sm-10 col-12">
-                                        <a><h3 class="user-name"><%= @post.user.full_name.titleize %></h3></a>
-                                        <div class="card-data">
-                                            <ul>
-                                                <li class="comment-date"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(comment.created_at) %> ago</li>
-                                            </ul>
-                                            <div id="comments">
-                                                <%= comment.content %>
-                                            </div>
+                            <% @comments.each do |comment| %>
+                                <!--First row-->
+                                <div id="comments-section">
+                                    <div class="row">
+                                        <!--Image column-->
+                                        <div class="col-sm-2 col-md-12">
+                                            <%= gravatar_for(comment.user, size: 150) %>
                                         </div>
+                                        <!--/.Image column-->
+                                        <!--Content column-->
+                                        <div class="col-sm-2 col-md-12">
+                                            <a><h3 class="user-name"><%= @post.user.full_name.titleize %></h3></a>
+                                            <div class="card-data">
+                                                <ul>
+                                                    <li class="comment-date"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(comment.created_at) %> ago</li>
+                                                </ul>
+                                                <div id="comments">
+                                                    <%= comment.content %>
+                                                </div>
+                                            </div>
 
+                                        </div>
                                     </div>
                                     <!--/.Content column-->
                                 </div>
+                            </div>
+                                    <!--/.First row-->
                             <% end %>
-                                <!--/.First row-->
-                            </div>
-                            </div>
                         </div>
                         <!--/.Main wrapper-->
+                                                <br />
                         <div class="center">
                         <%= will_paginate @comments, renderer: BootstrapPagination::Rails, class: "pg" %>
                     </div><br>
@@ -123,8 +124,8 @@
                             <p class="text-center"><%= current_user.first_name.capitalize if current_user %></p>
 
                             <% if @post.comments != 0 %>
-                                        <p class="comment-text"></p>
-                                <%= render partial: 'comments/form', object: @comments %>
+                                        <p class="comment-text"><%= render partial: 'comments/form', object: @comments %></p>
+
                             <% end %>
                         </div>
                         <!--/.Leave a reply form-->
