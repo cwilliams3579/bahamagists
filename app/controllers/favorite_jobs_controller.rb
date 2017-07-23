@@ -3,9 +3,15 @@ class FavoriteJobsController < ApplicationController
   
   def create
     if Favorite.create(favorited: @job, user: current_user)
+
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
       redirect_to @job, notice: "Job was added to favorites"
     else
-      redirect_to @job, alert: "Something went wrong...*sad panda*"
+      flash[:danger] = "Oops something went wrong!"
+      redirect_to @job
     end
   end
   

@@ -22,7 +22,6 @@ gem 'groupdate'
 gem 'rack-cors'
 gem 'turbolinks', '~> 5'
 gem 'jquery-turbolinks'
-gem 'acts_as_favable'
 gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,6 +30,7 @@ group :development, :test do
 end
 group :development do
   gem 'sqlite3'
+  gem 'faker'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

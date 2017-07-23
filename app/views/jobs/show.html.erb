@@ -25,7 +25,7 @@
             <%- unless current_user.favorite_jobs.exists?(id: @job.id) -%>
                 <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star fa-lg faa faa-spin animated-hover grey-text star-hov" %>
                 <%- else -%>
-                <%= link_to '', favorite_job_path(@job), method: :delete, class: "fa fa-star fa-lg faa faa-spin animated-hover star" %>
+                <%= link_to '', favorite_job_path(@job), method: :delete, remote: true, class: "fa fa-star fa-lg faa faa-spin animated-hover star" %>
             <%- end -%>
             <% if current_user || current_user.admin? %>
                 <%= link_to "", job_path(@job), method: :delete, data: { confirm: "Are you sure?", class: "fa fa-trash fa-2x text-danger" } %>
