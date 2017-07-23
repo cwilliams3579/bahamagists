@@ -159,58 +159,62 @@
 
                 <!--Second row-->
                 <div class="row">
+                    <% Job.all.each do |job|%>
+                    <% job.favorite_jobs.each do |user|%>
+                        <!--First column-->
+                        <div class="col-md-4 mb-r">
 
-                        <% @jobs.each do |job| %>
-                    <!--First column-->
-                    <div class="col-md-4 mb-r">
+                            <!--Card-->
+                            <div class="card card-cascade narrower">
 
-                        <!--Card-->
-                        <div class="card card-cascade narrower">
-
-                            <!--Card image-->
-                            <div class=" overlay hm-white-slight">
-                            <% if job.image? %>
-                                <%= link_to image_tag(job.image_url), job_path(job) if job.image?  %>
-                            <% else %>
-                                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="jb-img" alt="">
-                             <% end %>
-                                <a>
-                                    <div class="mask"></div>
-                                </a>
-                            </div>
-                            <!--/.Card image-->
-
-                            <!--Card content-->
-                            <div class="card-block text-center">
-                                <!--Category & Title-->
-
-                                <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
-
-                                <!--Rating-->
-                                <!--<ul class="rating">
-                                    <div class="star-rating" data-score= <%#=  %> ></div>
-                                </ul> -->
-
-                                <!--Description-->
-                                <p class="card-text">
-                                    <%= truncate(job.description, length: 250) %>
-                                </p>
-
-                                <!--Card footer-->
-                                <div class="card-footer">
-                                    <span class="left"><%= job.reviews.count %> <%= "reviews".pluralize(job.reviews.count) %> </span>                                    <span class="right">
-                                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    </span>
+                                <!--Card image-->
+                                <div class=" overlay hm-white-slight">
+                                <% if job.image? %>
+                                    <%= link_to image_tag(job.image_url), job_path(job) if job.image?  %>
+                                <% else %>
+                                    <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="jb-img" alt="">
+                                <% end %>
+                                    <a>
+                                        <div class="mask"></div>
+                                    </a>
                                 </div>
+                                <!--/.Card image-->
+
+                                <!--Card content-->
+                                <div class="card-block text-center">
+                                    <!--Category & Title-->
+
+                                    <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
+
+                                    <!--Rating-->
+                                    <!--<ul class="rating">
+                                        <div class="star-rating" data-score= <%#=  %> ></div>
+                                    </ul> -->
+
+                                    <!--Description-->
+                                    <p class="card-text">
+                                        <%= truncate(job.description, length: 250) %>
+                                    </p>
+
+                                    <!--Card footer-->
+                                    <div class="card-footer">
+                                        <span class="left"><%= job.reviews.count %> <%= "reviews".pluralize(job.reviews.count) %> </span>                                    <span class="right">
+                                        <%- unless current_user.favorite_jobs.exists?(id: @job_id) -%>
+                                            <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star grey-text star-hov" %>
+                                        <%- else -%>
+                                            <%= link_to '', favorite_job_path(@job), method: :delete, class: "fa fa-star star" %>
+                                        <%- end -%>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/.Card content-->
                             </div>
-                            <!--/.Card content-->
+                            <!--/.Card-->
+
                         </div>
-                        <!--/.Card-->
-
-                    </div>
-                    <!--/First column-->
-                            <% end %>
-
+                        <!--/First column-->
+                    <% end %>
+                    <% end %>
                 </div>
                 <!--/Second row-->
 
@@ -219,7 +223,8 @@
         </div>
         <div class="col-md-2 mx-auto">
             <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
-        </div><br>
-				<div class="center">
-					<%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
-				</div>
+        </div>
+        <br>
+        <div class="center">
+            <%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
+        </div>

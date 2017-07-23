@@ -20,8 +20,13 @@
             <hr>
             <p class="grey-text mb-2" align="justify"> <%= @job.description %></p>
             <a href="#!" class=" waves-effect waves-light">
-                <i class="fa fa-id-card fa-2x grey-text"></i>&nbsp;&nbsp;
+                <i class="fa fa-id-card fa-lg grey-text"></i>&nbsp;&nbsp;
             </a>
+            <%- unless current_user.favorite_jobs.exists?(id: @job.id) -%>
+                <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star fa-lg faa faa-spin animated-hover grey-text star-hov" %>
+                <%- else -%>
+                <%= link_to '', favorite_job_path(@job), method: :delete, class: "fa fa-star fa-lg faa faa-spin animated-hover star" %>
+            <%- end -%>
             <% if current_user || current_user.admin? %>
                 <%= link_to "", job_path(@job), method: :delete, data: { confirm: "Are you sure?", class: "fa fa-trash fa-2x text-danger" } %>
             <% end %><br>

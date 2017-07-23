@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :reviews, except: [:show, :index]
   end
-    resources :categories
+  
+  resources :favorite_jobs, only: [:create, :destroy]
+  
+  resources :categories
 
   devise_for :users, :controllers => { registrations: 'registrations'}
 
@@ -14,5 +17,4 @@ Rails.application.routes.draw do
   end
 
   #get 'job_category', to: 'categories#show'
-
 end
