@@ -1,52 +1,59 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="container p-top-2x">
+  <div class="card card-form">
+    <div class="card-block">
+      <div class="form-header">
+          <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
+      </div>
+      
+      <%= form_for(@event, :html => { multipart: true }) do |f| %>
+        <% if event.errors.any? %>
+          <div id="error_explanation">
+            <h2 class="h2-responsive center white-text"><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+            <ul>
+            <% event.errors.full_messages.each do |message| %>
+              <li class="center text-danger"><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="text-center">
+          <i class="fa fa-camera-retro fa-2x prefix white-text"></i>
+          <%= f.file_field :images, multiple: true, class: "white-text" %>
+        </div>
+        <div class="f-img">
+          <%= f.hidden_field :images_cache %>
+        </div>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <div class="md-form">
+          <i class="fa fa-tag prefix white-text"></i>
+          <%= f.text_field :title, class: "form-control white-text" %>
+          <label for="Title">Title</label>
+        </div>
+
+        <div class="md-form">
+          <i class="fa fa-pencil prefix white-text"></i>
+          <%= f.text_field :description, class: "md-textarea white-text" %>
+          <label for="description">Description</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-thumb-tack prefix white-text"></i>
+          <%= f.text_field :address, class: "form-control white-text" %>
+          <label for="address">Address</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-calendar prefix white-text"></i>
+          <%= f.date_field :start_date, class: "form-control white-text" %>
+          <label for="start_date"></label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-calendar prefix white-text"></i>
+          <%= f.date_field :end_date, class: "form-control white-text" %>
+          <label for="end_date"></label>
+        </div>
+        <div class="md-form">
+          <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-refresh fa-5x fa-spin'></i>"} %>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.text_field :images, id: :event_images %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :event_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :event_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :event_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date, id: :event_start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date, id: :event_end_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :event_user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

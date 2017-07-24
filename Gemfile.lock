@@ -124,6 +124,8 @@ GEM
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     groupdate (3.2.0)
@@ -348,6 +350,7 @@ DEPENDENCIES
   faker
   figaro
   fog-aws
+  friendly_id (~> 5.1.0)
   groupdate
   guard
   guard-bundler

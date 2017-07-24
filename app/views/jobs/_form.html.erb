@@ -5,56 +5,48 @@
           <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
       </div>
       <%= form_for(@job, :html => { multipart: true }) do |f| %>
-  <% if job.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h4>
-
-      <ul>
-      <% job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <% if job.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h4>
+            <ul>
+            <% job.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="md-form">
+          <%= f.file_field :image, class: "btn btn-outline-white white-text" %>
+        </div>
+        <div class="col center">
+          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "checkbox-inline white-text"} %>
+          <label for="category_ids"></label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-tag prefix white-text"></i>
+          <%= f.text_field :title, class: "form-control white-text" %>
+          <label for="Title">Title</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-building-o prefix white-text"></i>
+          <%= f.text_field :company, class: "form-control white-text" %>
+          <label for="company">Company</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-globe prefix white-text" aria-hidden="true"></i>
+          <%= f.text_field :url, class: "form-control white-text"%>
+          <label for="url">http://www.google.com</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-pencil prefix white-text"></i>
+          <%= f.text_field :description, class: "md-textarea white-text" %>
+          <label for="description">Description</label>
+        </div>
+        <div class="md-form">
+          <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-refresh fa-5x fa-spin'></i>"} %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-   <div class="md-form">
-    <%= f.file_field :image, class: "btn btn-outline-white white-text" %>
-  </div>
-
-  <div class="col center">
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "checkbox-inline white-text"} %>
-    <label for="category_ids"></label>
-  </div>
-
-  <div class="md-form">
-    <i class="fa fa-tag prefix white-text"></i>
-    <%= f.text_field :title, class: "form-control white-text" %>
-    <label for="Title">Title</label>
-  </div>
-
-  <div class="md-form">
-    <i class="fa fa-building-o prefix white-text"></i>
-    <%= f.text_field :company, class: "form-control white-text" %>
-    <label for="company">Company</label>
-  </div>
-
-  <div class="md-form">
-    <i class="fa fa-globe prefix white-text" aria-hidden="true"></i>
-    <%= f.text_field :url, class: "form-control white-text"%>
-    <label for="url">http://www.google.com</label>
-  </div>
-
-  <div class="md-form">
-    <i class="fa fa-pencil prefix white-text"></i>
-    <%= f.text_field :description, class: "md-textarea white-text" %>
-    <label for="description">Description</label>
-  </div>
-
-
-  <div class="md-form">
-    <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-refresh fa-5x fa-spin'></i>"} %>
-  </div>
-<% end %>
     </div>
   </div>
 </main>
