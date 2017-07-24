@@ -4,7 +4,6 @@
       <div class="form-header">
           <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
       </div>
-      
       <%= form_for(@event, :html => { multipart: true }) do |f| %>
         <% if event.errors.any? %>
           <div id="error_explanation">
@@ -28,6 +27,11 @@
           <i class="fa fa-tag prefix white-text"></i>
           <%= f.text_field :title, class: "form-control white-text" %>
           <label for="Title">Title</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-tag prefix white-text"></i>
+          <%= f.text_field :tag_list, class: "form-control white-text" %>
+          <label for="Title">Tags</label>
         </div>
 
         <div class="md-form">

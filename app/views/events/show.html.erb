@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
         <div class="container p-top">
             
             <!-- Magazine -->
@@ -62,8 +60,8 @@
                                     </div>
 
                                     <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                                    <%= link_to '', edit_event_path(@event), class: "fa fa-pencil fa-lg grey-text" %>
-                                    <%= link_to '', event_path(@event), method: :delete, data: { confirm: "Are you sure?", class: "fa fa-trash fa-lg grey-text" } %>
+                                    <%= link_to '', edit_event_path(@event), class: "fa fa-pencil fa-lg grey-text" %>&nbsp;&nbsp;
+                                    <%= link_to '', event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "fa fa-trash fa-lg text-danger" %>
                                 </div>
 
                             </div>
