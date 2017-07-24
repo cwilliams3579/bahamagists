@@ -1,47 +1,49 @@
-<%= form_with(model: listing, local: true) do |form| %>
-  <% if listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+<div class="container">
+  <div class="card card-form p-top">
+    <div class="card-block">
+      <div class="form-header">
+          <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+      </div>
+      <%= form_for(@listing, multipart: true) do |f| %>
+        <% if listing.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
 
-      <ul>
-      <% listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% listing.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="md-form">
+          <i class="fa fa-camera-retro fa-2x prefix white-text"></i>
+          <%= f.file_field :images, multiple: true %>
+        </div> <br>
+        <div class="md-form">
+          <i class="fa fa-tag prefix white-text"></i>
+          <%= f.text_field :title, class: "form-control white-text" %>
+          <label for="title">Title</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-money prefix white-text"></i>
+          <%= f.text_field :price, class: "form-control white-text" %>
+          <label for="price">Price</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-map-marker prefix white-text"></i>
+          <%= f.text_field :address, class: "form-control white-text" %>
+          <label for="address">Address</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-pencil prefix white-text"></i>
+          <%= f.text_area :description, class: "md-textarea white-text" %>
+          <label for="description">Description</label>
+        </div>
+        <div class="md-form">
+          <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-refresh fa-5x fa-spin'></i>"} %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.text_field :images, id: :listing_images %>
   </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :listing_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :listing_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :listing_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :listing_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :listing_user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

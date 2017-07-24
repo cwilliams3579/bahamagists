@@ -5,6 +5,12 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.paginate(:page => params[:page], :per_page => 3)
     @categories = Category.all
+    # search = params[:term].present? ? params[:term] : nil
+    # @jobs = if search
+    #   Job.search(search)
+    # else  
+    #   Job.all
+    # end
   end
 
   def show

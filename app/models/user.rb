@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_jobs, through: :favorites, source: :favorited, source_type: 'Job'
+  has_many :favorites
+  has_many :favorite_listings, through: :favorites, source: :favorited, source_type: 'Listing'
 
   has_many :listings, dependent: :destroy
   has_many :comments, dependent: :destroy

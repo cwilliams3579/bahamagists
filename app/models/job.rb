@@ -1,6 +1,7 @@
 class Job < ApplicationRecord
+  searchkick callbacks: :async
   mount_uploader :image, ImageUploader
-  
+
   validates :company, :url, :description, presence: true
   validates :title, presence: true, length: {minimum: 3, maximum: 50}
   validates :description, presence: true, length: {minimum: 10}

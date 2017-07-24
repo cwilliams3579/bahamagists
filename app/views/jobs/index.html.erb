@@ -1,5 +1,5 @@
 <% content_for :title do %>Jobs<% end %>
-<div class="container-fluid p-top-2x">
+<div class="container-fluid">
     <section class="section">
         <div class="row">
             <div class="col-md-12">
@@ -67,11 +67,10 @@
                                                             <%= link_to job.url, target: :_blank %>
                                                         </t>
                                                         <td class="center">
-                                                        <%#= link_to '', job_path(job), class: "fa fa-eye fa-lg" %>
                                                             <%- unless current_user.favorite_jobs.exists?(id: @job_id) -%>
-                                                                <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star grey-text star-hov" %>
+                                                                <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star star" %>
                                                             <%- else -%>
-                                                                <%= link_to '', favorite_job_path(@job), method: :delete, class: "fa fa-star star" %>
+                                                                <%= link_to '', favorite_job_path(@job), method: :delete, class: "fa fa-star" %>
                                                             <%- end -%>
                                                         </span>
                                                         </td>
