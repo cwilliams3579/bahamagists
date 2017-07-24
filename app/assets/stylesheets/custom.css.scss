@@ -121,3 +121,11 @@ f-img {
 .p-bottom {
 	margin-bottom: 100px !important;
 }
+
+.tile-widget .tile-title {
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0.6rem;
+    color: #fff;
+    font-size: 1.4rem;
+}
