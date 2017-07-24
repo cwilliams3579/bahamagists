@@ -6,6 +6,6 @@ class Event < ApplicationRecord
   belongs_to :user
   validates :title, presence: true, length: { in: 5..50 }
   validates :address, presence: true
-  validates :description, presence: true, length: { in: 10..500 }
+  validates :description, presence: true, length: { minimum: 10 }
   validates :start_date, :end_date, presence: true
 end

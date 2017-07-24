@@ -1,6 +1,9 @@
 class Job < ApplicationRecord
   searchkick callbacks: :async
   mount_uploader :image, ImageUploader
+  # extend FriendlyId
+  # friendly_id :title, use: [:slugged, :finders]
+
 
   validates :company, :url, :description, presence: true
   validates :title, presence: true, length: {minimum: 3, maximum: 50}

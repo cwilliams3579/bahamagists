@@ -40,6 +40,11 @@
                           <li>
                               <a href="/jobs" class="waves-effect">All Jobs</a>
                           </li>
+                            <% Category.all.each do |category| %>
+                                <li>
+                                    <%= category.name %>
+                                </li>
+                            <% end %>
                           <li>
                               <a href="/jobs/new" class="waves-effect">Post New Job</a>
                           </li>
@@ -60,7 +65,7 @@
                     </div>
                 </li>
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-diamond"></i> Categories<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-diamond"></i> Jobs<i class="fa fa-angle-down rotate-icon"></i></a>
                     <% Category.all.each do |category| %>
                       <div class="collapsible-body">
                         <ul>
@@ -68,6 +73,7 @@
                         </ul>
                       </div>
                     <% end %>
+                    
                 </li>
                 <li>
                   <a class="collapsible-header waves-effect arrow-r"><i class="fa fa-camera-retro"></i> Gallery<i class="fa fa-angle-down rotate-icon"></i></a>
