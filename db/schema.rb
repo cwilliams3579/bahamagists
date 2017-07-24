@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724045047) do
+ActiveRecord::Schema.define(version: 20170724145343) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20170724045047) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_jobs_on_slug", unique: true
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -95,6 +97,8 @@ ActiveRecord::Schema.define(version: 20170724045047) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_listings_on_slug", unique: true
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -105,6 +109,8 @@ ActiveRecord::Schema.define(version: 20170724045047) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.integer "user_id"
+    t.string "slug"
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
 
@@ -29,7 +30,6 @@ class EventsController < ApplicationController
       end
     end
   end
-
 
   def update
     respond_to do |format|

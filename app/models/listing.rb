@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
   searchkick callbacks: :async
   mount_uploaders :images, ImageUploader
   serialize :images#, JSON # If you use SQLite, add this line.
