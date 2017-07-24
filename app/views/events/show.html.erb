@@ -1,39 +1,307 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Images:</strong>
-  <%= @event.images %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+        <div class="container p-top">
+            
+            <!-- Magazine -->
+            <div class="row">
+                <!-- Main news --> 
+                <div class="col-md-12">
+                   
+                    <!-- Section: Single article --> 
+                    <section class="article-section">
+                      
+                        <!-- Image -->
+                        <div class="view overlay hm-white-light z-depth-2 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20%28125%29.jpg" class="img-fluid">
+                            <%#= image_tag(@event.images.urls) %>
+                            <a>
+                                <div class="mask waves-light waves-effect waves-light"></div>
+                            </a>
+                        </div> <br>
+                        
+                        <div class="article-text wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+                            <!-- Post data -->
+                            <h1 class="h1-responsive text-center"> <%= @event.title %></h1>
 
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
+                            <h5 class="text-center text-muted">By<a href="" class="black-text"><strong> <%= @event.user.full_name.titleize %></strong></a> on <%= @event.created_at.strftime("%B %d, %Y") %></h5>
+                            <!-- Article -->
+                            <p><%= simple_format(@event.description) %> </p>
+                        </div>
+                    </section>
+                    <!--/ Section: Single article --> 
+                    <hr class="between-sections wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
+                    <!-- Section: About author -->
+                    <section class="mb-3 wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+                       
+                        <!--Author box-->
+                        <div class="author-box">
+                            <!--Name-->
+                            <h3 class="h3-responsive text-center">Organizer</h3>
+                            <hr>
+                            <div class="row">
+                                <!--Avatar-->
+                                <div class="col-12 col-sm-2">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(5).jpg" class="img-fluid rounded-circle z-depth-2">
+                                </div>
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
+                                <!-- Author Data -->
+                                <div class="col-12 col-sm-10">
 
-<p>
-  <strong>User:</strong>
-  <%= @event.user %>
-</p>
+                                    <p><strong> <%= @event.user.full_name.titleize %></strong></p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+                                    <div class="personal-sm">
+                                        <a class="email-ic"><i class="fa fa-home"> </i></a>
+                                        <a href="https://www.facebook.com/mdbootstrap" target="_blank" class="fb-ic"><i class="fa fa-facebook"> </i></a>
+                                        <a href="https://twitter.com/MDBootstrap" target="_blank" class="tw-ic"><i class="fa fa-twitter"> </i></a>
+                                        <a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank" class="gplus-ic"><i class="fa fa-google-plus"> </i></a>
+                                        <a href="https://www.linkedin.com/in/michal-szymanski-9228918a" target="_blank" class="li-ic"><i class="fa fa-linkedin"> </i></a>
+                                        <a class="email-ic"><i class="fa fa-envelope-o"> </i></a>
+                                    </div>
+
+                                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                                    <%= link_to '', edit_event_path(@event), class: "fa fa-pencil fa-lg grey-text" %>
+                                    <%= link_to '', event_path(@event), method: :delete, data: { confirm: "Are you sure?", class: "fa fa-trash fa-lg grey-text" } %>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/ Author box -->
+                    </section>
+                    <!--/ Section: About author -->
+                    
+                    
+                    <!-- Section: Related posts -->
+                    <section class="related-posts wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+                        
+                        <!-- Title -->
+                        <h3 class="text-center">Other Events</h3>
+                        
+                        <!-- First row -->
+                        <div class="row">
+                            <!-- First column -->
+                            <div class="col-md-4">
+
+                                <!-- Card -->
+                                <div class="card">
+
+                                    <!-- Card image -->
+                                    <div class="view hm-white-slight">
+                                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/img%20%28109%29.jpg" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask waves-light waves-effect waves-light"></div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Card content -->
+                                    <div class="card-block">
+                                        <!-- Title -->
+                                        <a class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque.</a>
+
+                                    </div>
+                                    
+                                    <!-- Card footer -->
+                                    <div class="card-data">
+                                        <ul>
+                                            <li><p> 15/06/2015</p></li>
+                                            <li><a href="#!"><i class="fa fa-comments-o"></i>56</a></li>
+                                        </ul>
+                                    </div>   
+                                    
+                                </div>
+                                <!--/ Card -->
+
+                            </div>
+                            <!--/ First column -->
+                        
+                            <!-- Second column -->
+                            <div class="col-md-4">
+
+                                <!-- Card -->
+                                <div class="card">
+
+                                    <!-- Card image -->
+                                    <div class="view hm-white-slight">
+                                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/img%20%28107%29.jpg" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask waves-light waves-effect waves-light"></div>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card content -->
+                                    <div class="card-block">
+                                        <!-- Title -->
+                                        <a class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</a>
+
+                                    </div>
+
+                                    <!-- Card footer -->
+                                    <div class="card-data">
+                                        <ul>
+                                            <li><p> 28/06/2015</p></li>
+                                            <li><a href="#!"><i class="fa fa-comments-o"></i>68</a></li>
+                                        </ul>
+                                    </div>   
+
+                                </div>
+                                <!--/ Card -->
+
+                            </div>
+                            <!--/ Second column -->
+
+                            <!-- Third column -->
+                            <div class="col-md-4">
+
+                                <!-- Card -->
+                                <div class="card">
+
+                                    <!-- Card image -->
+                                    <div class="view hm-white-slight">
+                                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/img%20%28100%29.jpg" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask waves-light waves-effect waves-light"></div>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card content -->
+                                    <div class="card-block">
+                                        <!-- Title -->
+                                        <a class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam.</a>
+
+                                    </div>
+
+                                    <!-- Card footer -->
+                                    <div class="card-data">
+                                        <ul>
+                                            <li><p> 01/07/2015</p></li>
+                                            <li><a href="#!"><i class="fa fa-comments-o"></i>49</a></li>
+                                        </ul>
+                                    </div>   
+
+                                </div>
+                                <!--/ Card -->
+
+                            </div>
+                            <!--/ Third column -->
+                        </div>
+                        <!--/ First row -->
+                        
+                    </section>
+                    <!--/ Section: Related posts -->                                
+                   
+                    
+                    <hr class="between-sections wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
+
+
+                </div>
+                <!--/ Main news -->
+                
+            </div>
+            <!--/ Magazine -->
+            
+
+              <!--Section: Contact v.1-->
+<section class="section mb-4">
+
+    <div class="row">
+
+        <!--First column-->
+        <div class="col-md-5">
+
+            <!--Form with header-->
+            <div class="card card-form">
+
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="form-header outline-white">
+                        <h3><i class="fa fa-envelope"></i></h3>
+                    </div>
+
+                    <p class="text-center white-text">We'll respond as soon as possible</p>
+                    <br>
+
+                    <!--Body-->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix white-text"></i>
+                        <input type="text" name="name" class="form-control">
+                        <label for="form3">Your name</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix white-text"></i>
+                        <input type="email" name="email" class="form-control">
+                        <label for="email">Your email</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-tag prefix white-text"></i>
+                        <input type="text" name="subject" class="form-control">
+                        <label for="subject">Subject</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-pencil prefix white-text"></i>
+                        <textarea type="text" name="description" class="md-textarea"></textarea>
+                        <label for="description">Description</label>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-rounded btn-outline-white">Submit</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--/Form with header-->
+
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-md-7">
+
+            <!--Google map-->
+            <div id="map-container" class="z-depth-1-half map-container" style="height: 400px"></div>
+
+            <br>
+            <!--Buttons-->
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a class="btn-floating btn-small info-color"><i class="fa fa-map-marker"></i></a>
+                    <p><%= @event.address %></p>
+                    <p>United States</p>
+                </div>
+
+                <div class="col-md-4">
+                    <a class="btn-floating btn-small info-color"><i class="fa fa-phone"></i></a>
+                    <p>+ 01 234 567 89</p>
+                    <p>Mon - Fri, 8:00-22:00</p>
+                </div>
+
+                <div class="col-md-4">
+                    <a class="btn-floating btn-small info-color"><i class="fa fa-calendar"></i></a>
+                    <p>
+                      <strong>Start date:</strong>
+                      <%= @event.start_date %>
+                    </p>
+
+                    <p>
+                      <strong>End date:</strong>
+                      <%= @event.end_date %>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!--/Second column-->
+
+    </div>
+
+</section>
+<!--/Section: Contact v.1-->
+
+        </div>
+
+<%= link_to '', events_path, class: "fa fa-hand-o-left fa-2x faa faa-horizontal-animated info-text" %>
