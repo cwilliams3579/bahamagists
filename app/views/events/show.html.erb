@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-        <div class="container-fluid p-top">
+        <div class="container p-top">
             
             <!-- Magazine -->
             <div class="row">
@@ -12,8 +12,7 @@
                       
                         <!-- Image -->
                         <div class="view overlay hm-white-light z-depth-2 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20%28125%29.jpg" class="img-fluid">
-                            <%#= image_tag @event.images %>
+                            <%= image_tag @event.images[0], class: "img-fluid" %>
                             <a>
                                 <div class="mask waves-light waves-effect waves-light"></div>
                             </a>
