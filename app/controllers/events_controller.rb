@@ -4,17 +4,28 @@ class EventsController < ApplicationController
 
 
   def index
-    @events = Event.all
+    if params[:query].present?
+      @events = Event.search(params[:query])
+    else
+      @events = Event.order(created_at: :desc).paginate(page: params[:page], per_page: 4)
+    end
+    @categories = Category.order(:name)
+    authorize @events, :index?
   end
 
   def show
+    authorize @event, :show?
+    @comment = Comment.new
+    @comment.event_id = @event.id
   end
 
   def new
     @event = Event.new
+     authorize @event, :new?
   end
 
   def edit
+    authorize @event, :edit?
   end
 
   def create
@@ -48,6 +59,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    authorize @event, :destroy?
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
@@ -57,7 +69,7 @@ class EventsController < ApplicationController
   private
     def set_event
       @event = Event.friendly.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
+      rescue ActiveRecord::RecordNotFound
       flash[:danger] = "The page you requested does not exist"
       redirect_to events_url
     end

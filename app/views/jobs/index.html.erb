@@ -1,5 +1,5 @@
 <% content_for :title do %>Jobs<% end %>
-<div class="container-fluid">
+<div class="container-fluid p-top-2x">
     <section class="section">
         <div class="row">
             <div class="col-md-12">
@@ -132,7 +132,7 @@
         </div>
     </section>
     <div class="col-md-2 mx-auto">
-        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class: "pg" %>
+        <%= will_paginate(@jobs, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
     </div>
     <br>
     <div class="center">

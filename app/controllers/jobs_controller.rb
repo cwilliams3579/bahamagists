@@ -63,6 +63,9 @@ class JobsController < ApplicationController
   
   def set_job
     @job = Job.friendly.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = "The page you requested does not exist"
+      redirect_to jobs_url
   end
 
   # def check_user

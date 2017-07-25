@@ -24,5 +24,8 @@ class FavoriteJobsController < ApplicationController
   
   def set_job
     @job = Job.find(params[:job_id] || params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = "The page you requested does not exist"
+      redirect_to root_url
   end
 end
