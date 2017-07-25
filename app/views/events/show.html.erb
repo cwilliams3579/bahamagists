@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-        <div class="container p-top">
+        <div class="container-fluid p-top">
             
             <!-- Magazine -->
             <div class="row">
@@ -282,12 +282,12 @@
                     <a class="btn-floating btn-small info-color"><i class="fa fa-calendar"></i></a>
                     <p>
                       <strong>Start date:</strong>
-                      <%= @event.start_date %>
+                      <%= time_format(@event.start_date)  %>
                     </p>
 
                     <p>
                       <strong>End date:</strong>
-                      <%= @event.end_date %>
+                      <%= time_format(@event.end_date) %>
                     </p>
                 </div>
             </div>

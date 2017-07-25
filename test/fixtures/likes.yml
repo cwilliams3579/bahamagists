@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  like: MyString
+  event: one
+  user: one
+
+two:
+  like: MyString
+  event: two
+  user: two

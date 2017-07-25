@@ -91,7 +91,7 @@
     <nav>
         <ul class="pagination pg-darkgrey flex-center mt-3 mb-5">
             <li class="center">
-                <%= will_paginate @posts, renderer: BootstrapPagination::Rails, class: "pg" %>
+                <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
             </li>
         </ul>
     </nav>
