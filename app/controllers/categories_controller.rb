@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :require_admin, except: [:index, :show]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
     @categories = Category.all
@@ -9,6 +9,9 @@ class CategoriesController < ApplicationController
 
   def show
     @jobs = Job.all
+
+    @categories = Category.order(:name)
+    @category_events = @category.events.order(created_at: :desc).paginate(page: params[:page], per_page: 1)
   end
 
   def new
@@ -51,7 +54,10 @@ class CategoriesController < ApplicationController
 
   private
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.friendly.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The category you were looking for could be found."
+      redirect_to(request.referrer || events_url)
     end
 
     def category_params

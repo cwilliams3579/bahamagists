@@ -46,12 +46,12 @@
         </div>
         <div class="md-form">
           <i class="fa fa-calendar prefix white-text"></i>
-          <%= f.date_field(:start_date, order: [:day, :month, :year], start_year: Date.current.year, ampm: true, prompt: true, class: "form-control white-text datepicker") %>
+          <%= f.text_field(:start_date, class: " white-text start_date") %>
           <label for="start_date"></label>
         </div>
         <div class="md-form">
           <i class="fa fa-calendar prefix white-text"></i>
-         <%= f.date_field(:end_date, order: [:day, :month, :year], start_year: Date.current.year, ampm: true, prompt: true, class: "form-control white-text") %>
+         <%= f.text_field(:end_date, class: "white-text end_date") %>
           <label for="end_date"></label>
         </div>
         <div class="md-form">
@@ -61,8 +61,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-  // Data Picker Initialization
-$('.datepicker').pickadate();
-</script>

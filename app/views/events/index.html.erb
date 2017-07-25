@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <main>
-        <div class="container-fluid">
+        <div class="container">
                
             <!-- Top news -->
             <div class="row wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
@@ -176,7 +176,6 @@
                         <!-- First row -->
                         <div class="row text-left">
                         <% @events.each do |event| %>
-                            <% event.images.each do |img| %>
                                 <!-- First column -->
                                 <div class="col-lg-6 col-md-12">
 
@@ -184,8 +183,8 @@
                                     <div class="single-news">
 
                                         <!--Image-->
-                                        <div class="view overlay hm-white-slight">
-                                            <%= link_to image_tag(img.url), event_path(event)  %>
+                                        <div class="view overlay hm-white-slight" id="event-div">
+                                            <%= link_to image_tag(event.images[0].url), event_path(event), class: "img-fluid" %>
                                             <a>
                                                 <div class="mask waves-light waves-effect waves-light"></div>
                                             </a>
@@ -200,14 +199,15 @@
                                         <h3><%= link_to(event.title, event_path(event)) %></h3>
                                         
                                         <p><%= simple_format(event.description)  %></p>
-
+                                        <hr>
                                     </div>
                                     <!--/ Featured news -->
                                 </div>
                                 <!--/First column-->
                             <% end %>
-                        <% end %>
-
+                            <div class="mx-auto">
+                                <%= will_paginate(@events, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                            </div>
                         </div>
                         <!--/First row-->
                     </section>

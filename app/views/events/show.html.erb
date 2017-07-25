@@ -23,7 +23,7 @@
                             <!-- Post data -->
                             <h1 class="h1-responsive text-center"> <%= @event.title %></h1>
 
-                            <h5 class="text-center text-muted">By<a href="" class="black-text"><strong> <%= @event.user.full_name.titleize %></strong></a> on <%= @event.created_at.strftime("%B %d, %Y") %></h5>
+                            <h5 class="text-center text-muted">By<a href="" class="black-text"><strong> <%= @event.organizer.full_name.titleize %></strong></a> on <%= @event.created_at.strftime("%B %d, %Y") %></h5>
                             <!-- Article -->
                             <p><%= simple_format(@event.description) %> </p>
                         </div>
@@ -48,7 +48,7 @@
                                 <!-- Author Data -->
                                 <div class="col-12 col-sm-10">
 
-                                    <p><strong> <%= @event.user.full_name.titleize %></strong></p>
+                                    <p><strong> <%= @event.organizer.full_name.titleize %></strong></p>
 
                                     <div class="personal-sm">
                                         <a class="email-ic"><i class="fa fa-home"> </i></a>

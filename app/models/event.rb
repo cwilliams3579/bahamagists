@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   attr_accessor :tag_list
   
   mount_uploaders :images, ImageUploader
+  serialize :images#, JSON # If you use SQLite, add this line.
+
   
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -9,7 +11,7 @@ class Event < ApplicationRecord
   searchkick
 
   belongs_to :organizer, class_name: "User", foreign_key: "user_id"
-  belongs_to :category
+  # belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :attendances, dependent: :destroy
   has_many :attendees, through: :attendances
@@ -17,7 +19,7 @@ class Event < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   
-  validates :title, presence: true, length: { in: 5..50 }
+  validates :title, presence: true, length: { in: 4..50 }
   validates :address, presence: true
   validates :description, presence: true, length: { minimum: 10 }
   validates :start_date, :end_date, presence: true

@@ -110,8 +110,8 @@
                         <!--/.Main wrapper-->
                                                 <br />
                         <div class="center">
-                        <%= will_paginate @comments, renderer: BootstrapPagination::Rails, class: "pg" %>
-                    </div><br>
+                            <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                        </div><br>
                     </section>
                     <!--/Section: Comments list-->
                     <hr class="between-sections wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">

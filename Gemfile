@@ -21,6 +21,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'chartkick', '~> 2.2', '>= 2.2.4'
 gem 'groupdate'
 gem 'searchkick'
+gem 'jquery-ui-rails'
 gem 'rack-cors'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'turbolinks', '~> 5'

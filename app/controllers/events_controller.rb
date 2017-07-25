@@ -15,8 +15,8 @@ class EventsController < ApplicationController
 
   def show
     authorize @event, :show?
-    @comment = Comment.new
-    @comment.event_id = @event.id
+    # @comment = Comment.new
+    # @comment.event_id = @event.id
   end
 
   def new
@@ -30,7 +30,9 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user_id = current_user.id
+    authorize @event, :create?
+    @event.organizer = current_user
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -43,17 +45,13 @@ class EventsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        authorize @event, :create?
-        @event.organizer = current_user
-        
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    authorize @event, :update?
+    if @event.update(event_params)
+      flash[:notice] = "Event updated!"
+      redirect_to @event
+    else
+      flash.now[:alert] = "Event not updated!"
+      render "edit"
     end
   end
 
