@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require jquery-ui/datepicker
+//= require jquery-ui
 //= require Chart.bundle
 //= require chartkick
 //= require jquery.turbolinks

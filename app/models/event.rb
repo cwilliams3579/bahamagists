@@ -1,14 +1,12 @@
 class Event < ApplicationRecord
+  searchkick
   attr_accessor :tag_list
   
   mount_uploaders :images, ImageUploader
   serialize :images#, JSON # If you use SQLite, add this line.
-
-  
+ 
   extend FriendlyId
   friendly_id :title, use: :slugged
-
-  searchkick
 
   belongs_to :organizer, class_name: "User", foreign_key: "user_id"
   # belongs_to :category
@@ -22,7 +20,7 @@ class Event < ApplicationRecord
   validates :title, presence: true, length: { in: 4..50 }
   validates :address, presence: true
   validates :description, presence: true, length: { minimum: 10 }
-  validates :start_date, :end_date, presence: true
+  validates :start_date, :end_date, :start_time, :end_time, presence: true
   
   def tag_list
     tags.join(", ")

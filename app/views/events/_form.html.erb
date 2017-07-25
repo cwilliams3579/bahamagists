@@ -15,16 +15,23 @@
             </ul>
           </div>
         <% end %>
-        <div class="text-center">
+        <div class="md-form">
           <i class="fa fa-camera-retro fa-2x prefix white-text"></i>
-          <%= f.file_field :images, multiple: true, class: "white-text" %>
+          <div class="center">
+            <%= f.file_field :images, multiple: true, class: "white-text" %>
+          </div>
         </div>
         <div class="f-img">
           <%= f.hidden_field :images_cache %>
         </div>
 
+        <div class="col center">
+          <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "checkbox-inline white-text"} %>
+          <label for="category_ids"></label>
+        </div>
+
         <div class="md-form">
-          <i class="fa fa-tag prefix white-text"></i>
+          <i class="fa fa-header prefix white-text"></i>
           <%= f.text_field :title, class: "form-control white-text" %>
           <label for="Title">Title</label>
         </div>
@@ -40,19 +47,34 @@
           <label for="description">Description</label>
         </div>
         <div class="md-form">
-          <i class="fa fa-thumb-tack prefix white-text"></i>
+          <i class="fa fa-map-marker prefix white-text"></i>
           <%= f.text_field :address, class: "form-control white-text" %>
           <label for="address">Address</label>
         </div>
         <div class="md-form">
-          <i class="fa fa-calendar prefix white-text"></i>
-          <%= f.text_field(:start_date, class: " white-text start_date") %>
-          <label for="start_date"></label>
+          <i class="fa fa-users prefix white-text"></i>
+          <%= f.text_field :seats, class: "form-control white-text" %>
+          <label for="seats">Seats</label>
         </div>
         <div class="md-form">
           <i class="fa fa-calendar prefix white-text"></i>
-         <%= f.text_field(:end_date, class: "white-text end_date") %>
+          <%= f.text_field(:start_date, class: "form-control white-text start_date") %>
+          <label for="start_date">Start Date</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-calendar prefix white-text"></i>
+         <%= f.text_field(:end_date, class: "form-control white-text end_date") %>
+          <label for="end_date">End Date</label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-clock-o prefix white-text"></i>
+         <%= f.text_field(:start_time, placeholder: "Start Time",  class: "form-control white-text start_time") %>
           <label for="end_date"></label>
+        </div>
+        <div class="md-form">
+          <i class="fa fa-clock-o prefix white-text"></i>
+         <%= f.text_field(:end_time, placeholder: "End Time", class: "form-control white-text end_time") %>
+          <label for="end_time"></label>
         </div>
         <div class="md-form">
           <%= f.button class: "btn btn-block btn-lg btn-rounded btn-outline-white", data: { disable_with: "<i class='fa fa-refresh fa-5x fa-spin'></i>"} %>

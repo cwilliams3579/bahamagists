@@ -4,7 +4,7 @@ class Category < ApplicationRecord
   
   has_many :job_categories, dependent: :destroy
   has_many :jobs, through: :job_categories, dependent: :destroy
-  has_many :events
+  has_many :events, dependent: :destroy
   validates :name, presence: true, length: {in: 5..50}
   validates_uniqueness_of :name
 end

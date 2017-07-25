@@ -280,13 +280,13 @@
                 <div class="col-md-4">
                     <a class="btn-floating btn-small info-color"><i class="fa fa-calendar"></i></a>
                     <p>
-                      <strong>Start date:</strong>
-                      <%= time_format(@event.start_date)  %>
+                      <strong>Begins</strong>
+                      <%= @event.start_date.strftime("%B %d %Y") %> <%= @event.start_time.strftime("%r")  %>
                     </p>
 
                     <p>
-                      <strong>End date:</strong>
-                      <%= time_format(@event.end_date) %>
+                      <strong>End</strong>
+                      <%= @event.end_date.strftime("%B %d %Y") %> <%= @event.end_time.strftime("%r") %>
                     </p>
                 </div>
             </div>
