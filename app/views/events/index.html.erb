@@ -175,64 +175,39 @@
 
                         <!-- First row -->
                         <div class="row text-left">
+                        <% @events.each do |event| %>
+                            <% event.images.each do |img| %>
+                                <!-- First column -->
+                                <div class="col-lg-6 col-md-12">
 
-                            <!-- First column -->
-                            <div class="col-lg-6 col-md-12">
+                                    <!-- Featured news -->
+                                    <div class="single-news">
 
-                                <!-- Featured news -->
-                                <div class="single-news">
+                                        <!--Image-->
+                                        <div class="view overlay hm-white-slight">
+                                            <%= link_to image_tag(img.url), event_path(event)  %>
+                                            <a>
+                                                <div class="mask waves-light waves-effect waves-light"></div>
+                                            </a>
+                                        </div>
 
-                                    <!--Image-->
-                                    <div class="view overlay hm-white-slight">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/6-col/img%20(12).jpg">
-                                        <a>
-                                            <div class="mask waves-light waves-effect waves-light"></div>
-                                        </a>
+                                        <!--Excerpt-->
+                                        <div class="news-data">
+                                            <a href="" class="indigo-text"><h5><i class="fa fa-star-half-o"></i>Work</h5></a>
+                                            <p><strong><i class="fa fa-clock-o"></i> <%= event.created_at.strftime("%B %d %Y")  %></strong></p>
+                                        </div>
+                                        
+                                        <h3><%= link_to(event.title, event_path(event)) %></h3>
+                                        
+                                        <p><%= simple_format(event.description)  %></p>
+
                                     </div>
-
-                                    <!--Excerpt-->
-                                    <div class="news-data">
-                                        <a href="" class="indigo-text"><h5><i class="fa fa-star-half-o"></i>Work</h5></a>
-                                        <p><strong><i class="fa fa-clock-o"></i> 20/08/2016</strong></p>
-                                    </div>
-                                    
-                                    <h3><a>This is title of the news.</a></h3>
-                                    
-                                    <p>There is nothing more beautiful and amazing than Italy. Really. These views, people, pastas, pizzas, designers and first of all atmosphere. When I'm in Italy I'm smiling all the time.</p>
-
+                                    <!--/ Featured news -->
                                 </div>
-                                <!--/ Featured news -->
-                            </div>
-                            <!--/First column-->
+                                <!--/First column-->
+                            <% end %>
+                        <% end %>
 
-                            <!--Second column-->
-                            <div class="col-lg-6 col-md-12">
-
-                                <!--Featured news-->
-                                <div class="single-news">
-
-                                    <!--Image-->
-                                    <div class="view overlay hm-white-slight">
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(129).jpg">
-                                        <a>
-                                            <div class="mask waves-light waves-effect waves-light"></div>
-                                        </a>
-                                    </div>
-
-                                    <!--Excerpt-->
-                                    <div class="news-data">
-                                        <a href="" class="red-text"><h5 class="purple-text"><i class="fa fa-heart"></i>Lifestyle</h5></a>
-                                        <p><strong><i class="fa fa-clock-o"></i> 24/08/2016</strong></p>
-                                    </div>
-
-                                    <h3><a>This is title of the news.</a></h3>
-
-                                    <p>Oh, New York, New York! The city of my life. I think most of us would like live and work in NY. As a businessman, artist, fashion designer or like Carrie Bradshaw as a top journalist.</p>
-
-                                </div>
-                                <!--/Featured news-->
-                            </div>
-                            <!--/Second column-->
                         </div>
                         <!--/First row-->
                     </section>
@@ -240,10 +215,8 @@
                     <div class="divider-new wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
                         <h2 class="h2-responsive">Lifestyle &amp; Celebrities</h2>
                     </div>
-                    
                     <!-- Section: Magazine v.3 -->
                     <section class="section magazine-section multi-columns wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
-
                         <!--Section description-->
                         <p class="section-description">Health, style, sport or anything from lifestyle. We will inform you about new trends in fashion, healthy nutrition and about what happened in the world of celebrities.</p>
 
