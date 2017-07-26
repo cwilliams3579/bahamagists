@@ -54,6 +54,9 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = "The page you requested does not exist"
+      redirect_to jobs_url
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
     end

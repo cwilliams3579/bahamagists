@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, :controllers => { registrations: 'registrations'}
@@ -19,6 +21,6 @@ Rails.application.routes.draw do
 
   resources :events
   resources :listings
-  #get 'job_category', to: 'categories#show'
+  resources :users, only: [:show]
   root to: 'posts#index'
 end

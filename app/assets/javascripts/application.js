@@ -13,6 +13,8 @@
 //= require jquery
 //= require rails-ujs
 //= require jquery-ui
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require Chart.bundle
 //= require chartkick
 //= require jquery.turbolinks

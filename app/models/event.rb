@@ -8,14 +8,16 @@ class Event < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  belongs_to :organizer, class_name: "User", foreign_key: "user_id"
-  # belongs_to :category
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   has_many :attendances, dependent: :destroy
   has_many :attendees, through: :attendances
+  has_many :favorites, as: :favorited
+  has_many :favorite_events, through: :favorites, source: :user
   has_many :likes, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  belongs_to :organizer, class_name: "User", foreign_key: "user_id"
+  belongs_to :category
   
   validates :title, presence: true, length: { in: 4..50 }
   validates :address, presence: true

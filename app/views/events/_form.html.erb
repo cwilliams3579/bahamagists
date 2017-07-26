@@ -2,7 +2,7 @@
   <div class="card card-form">
     <div class="card-block">
       <div class="form-header">
-          <i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
       </div>
       <%= form_for(@event, :html => { multipart: true }) do |f| %>
         <% if event.errors.any? %>
@@ -26,8 +26,8 @@
         </div>
 
         <div class="col center">
-          <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "checkbox-inline white-text"} %>
-          <label for="category_ids"></label>
+          <%= f.collection_check_boxes :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "checkbox-inline white-text"} %>
+          <label for="category_id"></label>
         </div>
 
         <div class="md-form">

@@ -272,21 +272,29 @@
                 </div>
 
                 <div class="col-md-4">
-                    <a class="btn-floating btn-small info-color"><i class="fa fa-phone"></i></a>
-                    <p>+ 01 234 567 89</p>
-                    <p>Mon - Fri, 8:00-22:00</p>
+                    <a class="btn-floating btn-small info-color"><i class="fa fa-calendar"></i></a>
+                     <p>
+                      <%= @event.start_date.strftime("%B %d %Y") %>
+                    </p>
+
+                    <p>To</p>
+
+                    <p>
+                      <%= @event.end_date.strftime("%B %d %Y") %>
+                    </p>
                 </div>
 
                 <div class="col-md-4">
-                    <a class="btn-floating btn-small info-color"><i class="fa fa-calendar"></i></a>
+                    <a class="btn-floating btn-small info-color"><i class="fa fa-clock-o"></i></a>
+                     <p>
+                       <%= @event.start_time.strftime("%r") %>
+                    </p>
                     <p>
-                      <strong>Begins</strong>
-                      <%= @event.start_date.strftime("%B %d %Y") %> <%= @event.start_time.strftime("%r")  %>
+                        To
                     </p>
 
                     <p>
-                      <strong>End</strong>
-                      <%= @event.end_date.strftime("%B %d %Y") %> <%= @event.end_time.strftime("%r") %>
+                       <%= @event.end_time.strftime("%r") %>
                     </p>
                 </div>
             </div>

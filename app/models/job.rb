@@ -16,7 +16,7 @@ class Job < ApplicationRecord
   
   has_many :reviews, dependent: :destroy
   has_many :job_categories
-  has_many :categories, through: :job_categories
+  has_many :categories, through: :job_categories, dependent: :destroy
   has_many :favorites, as: :favorited
   has_many :favorite_jobs, through: :favorites, source: :user
 

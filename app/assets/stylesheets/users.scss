@@ -1,0 +1,24 @@
+.contact-card.with-padding {
+    padding: 20px;
+}
+
+.contact-card .contact-avatar {
+    background: #fff;
+    padding: 3px;
+    border: 2px solid #4285F4;
+
+}
+
+.contact-card img {
+    border-radius: 50%;
+    max-width: 130px !important;
+}
+  .rounded-circle {
+    border-radius: 50% !important;
+    max-width: 130px;
+}
+
+.card img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
