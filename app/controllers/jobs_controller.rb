@@ -3,14 +3,14 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
     # before_action :check_user
   def index
+    search = params[:term].present? ? params[:term] : nil
+    @jobs = if search
+      Job.search(search)
+    else  
+      Job.all
+    end
     @jobs = Job.paginate(:page => params[:page], :per_page => 3)
     @categories = Category.all
-    # search = params[:term].present? ? params[:term] : nil
-    # @jobs = if search
-    #   Job.search(search)
-    # else  
-    #   Job.all
-    # end
   end
 
   def show
@@ -78,6 +78,6 @@ class JobsController < ApplicationController
   # end
 
   def job_params
-    params.require(:job).permit(:image, :title, :company, :url, :description, category_ids: [])
+    params.require(:job).permit(:image, :title, :company, :url, :description, :term, category_ids: [])
   end  
 end

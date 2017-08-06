@@ -1,6 +1,4 @@
 class Job < ApplicationRecord
-  searchkick callbacks: :async
-  
   mount_uploader :image, ImageUploader
   
   extend FriendlyId
@@ -21,4 +19,13 @@ class Job < ApplicationRecord
   has_many :favorite_jobs, through: :favorites, source: :user
 
   default_scope -> { order(updated_at: :desc) }
+
+   searchkick callbacks: :async, word_middle: [:title, :company]
+
+  def search_data
+    {
+      title: title,
+      company: company
+    }
+  end
 end

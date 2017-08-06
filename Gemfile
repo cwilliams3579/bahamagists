@@ -20,10 +20,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'chartkick', '~> 2.2', '>= 2.2.4'
 gem 'groupdate'
+gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 gem 'searchkick'
 gem 'jquery-ui-rails'
-gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
-gem 'sweet-alert2-rails'
 gem 'rack-cors'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'turbolinks', '~> 5'
@@ -45,6 +44,7 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'tether-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
 group :development do

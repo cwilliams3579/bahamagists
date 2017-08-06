@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations'}
  
   resources :jobs do
+    collection do
+      get :autocomplete
+    end
     resources :reviews, except: [:show, :index]
   end
 

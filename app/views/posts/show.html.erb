@@ -12,7 +12,11 @@
                             <div class="col-md-12">
 
                                 <!--Featured image-->
-                                <%= image_tag @post.image_url, class: "img-fluid" if @post.image? %>
+                               <% if @post.image? %>
+                                    <%= image_tag @post.image, class: "img-fluid" %>
+                                <% else %>
+                                    <img src="https://www.pfsuites.com/images/no_image_available.png" class="image-fluid hm-zoom" style="width: 100%; height: 625px;" alt="Empty Image">
+                                <% end %>
                                 <!--Post data-->
                                 <div class="jumbotron wow fadeIn malibu" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
                                     <h2><%= @post.title.titleize %></h2>
@@ -47,7 +51,7 @@
                                             <i class="fa fa-comments-o left"></i>
                                             <span class="hidden-md-down">Comments</span>
                                         </a>
-                                        <span class="counter"><%= @post.comments.count %></span>
+                                        <span class="counter comments-count"><%= @post.comments.count %></span>
 
                                     </div>
                                     <!--/.Social shares-->
@@ -76,7 +80,7 @@
                         <!--Main wrapper-->
                         <div class="comments-list text-left">
                             <div class="section-heading">
-                                <h3 class="mt-2 mb-3"><span class="badge info-color"><%= @post.comments.count %></span> <%= link_to 'Comment'.pluralize, "#", id: "comments-link" %> </h3>
+                                <h3 class="mt-2 mb-3"><span class="badge info-color comments-count"><%= @post.comments.count %></span> <%= link_to 'Comment'.pluralize, "#", id: "comments-link" %> </h3>
                             </div>
                             <% @comments.each do |comment| %>
                                 <!--First row-->
@@ -95,7 +99,7 @@
                                                     <li class="comment-date"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(comment.created_at) %> ago</li>
                                                 </ul>
                                                 <div id="comments">
-                                                    <%= comment.content %>
+                                                    <%= simple_format(comment.content) %>
                                                 </div>
                                             </div>
 
@@ -110,7 +114,9 @@
                         <!--/.Main wrapper-->
                                                 <br />
                         <div class="center">
-                            <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                            <div class="text-center">
+                                <%= will_paginate(@comments, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                            </div>
                         </div><br>
                     </section>
                     <!--/Section: Comments list-->

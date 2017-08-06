@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725164920) do
+ActiveRecord::Schema.define(version: 20170806181952) do
 
   create_table "attendences", force: :cascade do |t|
     t.integer "event_id"
@@ -143,7 +143,9 @@ ActiveRecord::Schema.define(version: 20170725164920) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_id"
     t.index ["event_id"], name: "index_taggings_on_event_id"
+    t.index ["post_id"], name: "index_taggings_on_post_id"
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
 

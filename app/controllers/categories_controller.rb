@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
     def set_category
       @category = Category.friendly.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "The category you were looking for could be found."
+      flash[:alert] = "The page you were looking for could be found."
       redirect_to(request.referrer || events_url)
     end
 

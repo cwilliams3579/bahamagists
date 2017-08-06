@@ -60,34 +60,47 @@
     <div class="divider-new wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
         <h2>Gists</h2>
     </div>
-    <section class="section">
+    
+    <% @posts.each do |post| %>
         <div class="row">
-            <% @posts.each do |post| %>
-                <div class="col-md-6 mb-1">
-                    <h6 class="text-muted mb-1"><%= post.created_at.strftime("%B %d, %Y") %></h6>
-                    <h4 class="font-up mb-1"><a href="#!" class="text-muted font-thin"><%= link_to post.title, post_path(post), class: "text-muted font-thin" %></a></h4>
-                    <div class=" hm-white-slight mb-1-half">
+            <hr class="hr-width mb-5 mt-4 pb-3">
+                    <!--Grid column-->
+                    <div class="col-lg-5 ml-auto col-xl-4 pb-3">
+                        <!--Featured image-->
+                        <div class="view overlay hm-white-slight z-depth-1-half">
+                            
                         <% if post.image? %>
                             <%= link_to image_tag(post.image_url), post_path(post) %>
                         <% else %>
                             <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28129%29.jpg" class="img-fluid" alt="Post Image">
                         <% end %>
-                        <div class="mask waves-effect waves-light"></div>
-                    </div> <br>
-                    <p class="text-muted font-thin"><%= truncate(post.content, escape: false, length: 350) %></p>
-                    <div class="text-center">
-                        <%= link_to 'Read More', post_path(post), class: "btn btn-rounded info-color btn-outline-white" %>
+                            <a>
+                                <div class="mask waves-effect waves-light"></div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="text-center blog-social-icons mt-1 font-thin">
-                        <a class="icons-sm fb-ic"><i class="fa fa-facebook"></i><span class="text-muted"> 235</span></a>
-                        <a class="icons-sm tw-ic"><i class="fa fa-twitter"></i><span class="text-muted"> 47</span></a>
-                        <a class="icons-sm comm-ic"><i class="fa fa-comments"></i><span class="text-muted"> <%= post.comments.count %></span></a>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-7 mr-auto col-xl-6">
+                        <!--Excerpt-->
+                        <% post.tags.each do |tag| %>
+                            <a href="" class="green-text"><h6 class="font-bold pb-1"><i class="fa fa-tag text-muted"></i> <%= post.tags %></h6></a>
+                        <% end %>
+                        <h4 class="mb-4"><strong><%= link_to post.title, post_path(post), class: "text-muted font-thin" %></strong></h4>
+                        <div class="left blog-social-icons mt-1 font-thin">
+                            <a class="icons-sm fb-ic"><i class="fa fa-facebook"></i><span class="text-muted"> 235</span></a>
+                            <a class="icons-sm info-text"><i class="fa fa-thumbs-up"></i><span class="text-muted"> 47</span></a>
+                            <a class="icons-sm comm-ic"><i class="fa fa-comments"></i><span class="text-muted"> <%= post.comments.count %></span></a>
+                        </div>
+                        <p><%= truncate(post.content, escape: false, length: 350) %></p>
+                        <p>By <a><strong><%= post.user.full_name.titleize %></strong></a>, <%= post.created_at.strftime("%B %d, %Y") %></p>
+                        <%= link_to 'Read More', post_path(post), class: "btn btn-rounded info-color btn-outline-white pull-right" %>
                     </div>
-                    <div class="post-border pt-1"></div>
+                    <!--Grid column-->
+                <hr class="hr-width mb-5 mt-4 pb-3">
                 </div>
             <% end %>
-        </div>
-    </section>
     <nav>
         <ul class="pagination pg-darkgrey flex-center mt-3 mb-5">
             <li class="center">
