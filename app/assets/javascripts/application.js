@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require jquery-ui
+//= require dataTables/jquery.dataTables
 //= require tether
 //= require Chart.bundle
 //= require chartkick

@@ -13,6 +13,16 @@ class JobsController < ApplicationController
     @categories = Category.all
   end
 
+  def autocomplete
+    render json: Job.search(params[:query], {
+      fields: ["title^5", "company"],
+      match: :word_start,
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:title)
+  end
+
   def show
     @reviews = Review.where(job_id: @job.id).order("created_at DESC")
     if @reviews.blank?

@@ -22,6 +22,7 @@ gem 'chartkick', '~> 2.2', '>= 2.2.4'
 gem 'groupdate'
 gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 gem 'searchkick'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'jquery-ui-rails'
 gem 'rack-cors'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
