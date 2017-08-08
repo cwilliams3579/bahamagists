@@ -39,9 +39,9 @@
 }
 
 .side-nav .logo-wrapper {
-    background-image: url('https://s-media-cache-ak0.pinimg.com/originals/0e/11/c9/0e11c9275d2a098992d445bde15e90a4.jpg') !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
+    // background-image: url('https://s-media-cache-ak0.pinimg.com/originals/0e/11/c9/0e11c9275d2a098992d445bde15e90a4.jpg') !important;
+    // background-repeat: no-repeat !important;
+    // background-size: cover !important;
     width: 100% !important;
     height: 160px !important;
 }
@@ -129,4 +129,24 @@ f-img {
     left: 0.6rem;
     color: #fff;
     font-size: 1.4rem;
+}
+
+.right {
+    float: right !important;
+}
+
+.author-box {
+    padding: 1.5rem !important;
+}
+
+.personal-sm {
+    margin-bottom: 0px !important;
+}
+
+#personal-sm {
+    font-size: 14px;
+}
+
+#jb-title {
+    font-size: 25px;
 }

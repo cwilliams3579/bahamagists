@@ -6,6 +6,7 @@ end
 ruby '2.4.1'
 gem 'rails', '~> 5.1.2'
 gem 'devise'
+gem 'cancancan', '~> 2.0'
 gem 'pundit'
 gem 'rails_admin'
 gem 'figaro'

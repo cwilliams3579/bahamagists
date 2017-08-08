@@ -1,6 +1,6 @@
 class FavoriteJobsController < ApplicationController
   before_action :set_job
-  
+  respond_to :js, :json, :html
   def create
     if Favorite.create(favorited: @job, user: current_user)
 

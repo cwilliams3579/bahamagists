@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="review-rating" data-score=<%= review.rating %>></div>
+
 <p><%= review.description  %></p>
-  <% if user_signed_in?  %>
-    <% if review.user_id == current_user.id %>
+    <% if can? :update, review %>
       <%= link_to "", edit_job_review_path(@job),
-            class: "fa fa-pencil fa-lg grey-text waves-effect waves-light" %>&nbsp; &nbsp;
-      <%= link_to "", job_path(@job), method: :delete,
-            data: { confirm: "Are you sure you want to delete this job?" },
-            class: "fa fa-trash fa-lg grey-text" %>
+            class: "fa fa-pencil fa-lg grey-text waves-effect waves-light" %>
+    <% end %>
+    &nbsp; &nbsp;
+    <%= if can? :destroy, review %>
+    <%= link_to "", job_path(@job), method: :delete, data: { confirm: "Are you sure you want to delete this job?" }, class: "fa fa-trash fa-lg grey-text" %>
     <% end %>
     <hr>
 

@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-    # before_action :check_user
+  load_and_authorize_resource :through => :current_user
+  respond_to :js, :json, :html
+
   def index
     search = params[:term].present? ? params[:term] : nil
     @jobs = if search
@@ -81,13 +83,7 @@ class JobsController < ApplicationController
       redirect_to jobs_url
   end
 
-  # def check_user
-  #   unless current_user.admin?
-  #     redirect_to root_url, alert: "Sorry, only an administrator can perform that action!"
-  #   end
-  # end
-
   def job_params
-    params.require(:job).permit(:image, :title, :company, :url, :description, :term, category_ids: [])
+    params.require(:job).permit(:image, :title, :company, :url, :description, :term, :city, category_ids: [])
   end  
 end

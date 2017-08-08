@@ -1,1 +1,6 @@
+$('#fav').click(
+       function(){ $(this).addClass('favorited') },
+       function(){ $(this).removeClass('favorited') }
+)
+
 $('#favorites').append("<%= j render @favorite %>");

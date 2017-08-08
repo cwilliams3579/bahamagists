@@ -8,7 +8,14 @@
                 <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="img-fluid z-depth-5 jb-show view hm-zoom" alt="">
             <% end %>
             <br>
+            <br>
 			<h4 class="font-big font-bold font-up mb-1-half text-center"><%= @job.company %></h4>
+            <div class="center">
+                <% if @reviews.any? %>
+                    <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+                    <p>Based on <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %> </p>
+                <% end %>
+            </div>
         </div>
         <!--/First column-->
         <!--Second column-->
@@ -18,23 +25,25 @@
             <h3 class="cyan-text-4 center"> <%= @job.title.titleize %></h3>
             <hr>
             <p class="grey-text mb-2" align="justify"> <%= @job.description %></p>
-            <a href="#!" class=" waves-effect waves-light">
-                <i class="fa fa-id-card fa-lg grey-text"></i>&nbsp;&nbsp;
-            </a>
+            
+            <%= link_to '', "#", class: " waves-effect waves-light fa fa-id-card fa-lg grey-text" %> 
+                &nbsp;&nbsp;
             <%- unless current_user.favorite_jobs.exists?(id: @job.id) -%>
-                <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star fa-lg faa faa-spin animated-hover grey-text star-hov" %>
-                <%- else -%>
+                <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, remote: true, class: "fa fa-star fa-lg faa faa-spin animated-hover grey-text star-hov", id: "fav" %> 
+                &nbsp;&nbsp;
+            <%- else -%>
                 <%= link_to '', favorite_job_path(@job), method: :delete, remote: true, class: "fa fa-star fa-lg faa faa-spin animated-hover star" %>
+                 &nbsp;&nbsp;
             <%- end -%>
-            <% if current_user || current_user.admin? %>
-                <%= link_to "", job_path(@job), method: :delete, data: { confirm: "Are you sure?", class: "fa fa-trash fa-2x text-danger" } %>
-            <% end %><br>
-				<div class="center">
-					<% if @reviews.any? %>
-            	        <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-                        <p>Based on <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %> </p>
-                    <% end %>
-				</div>
+            <% if can? :update, @job %>
+                <%= link_to '', edit_job_path(@job), class: "fa fa-pencil fa-lg grey-text" %>
+                &nbsp;&nbsp;
+            <% end %>
+            <% if can? :destroy, @job %>
+                <%= link_to '', job_path(@job), method: :delete, class: "fa fa-trash fa-lg grey-text" %>
+            <% end %>
+            <br>
+            
         </div>
         <!--/Second column-->
         <br>

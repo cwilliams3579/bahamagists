@@ -1,138 +1,124 @@
-<% content_for :title do %>Jobs<% end %>
-<div class="container-fluid p-top-2x">
-    <section class="section">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mx-auto narrower">
-                    <div class="admin-panel">
-                        <div class="row m-b-0">
-                            <div class="col-md-12">
-                                <h3 class="h3-responsive center info-color white-text view" style="padding:7px;">Trending</h3>
-                            
-                                <div class=" right">
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <!-- <canvas id="sales" height="384" width="744" style="width: 744px; height: 384px;"></canvas> -->
-                                    <%= pie_chart Job.group(:title).count %>
-
-                                </div>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                            </div>
-                             <div class="col-md-12">
-                                <div class="view left white-text center info-color">
-                                    <h2>Search Jobs</h2>
-                                </div>
-                                <div class="pull-right">
-                                    <%= form_tag(jobs_path, method: :get, class: "right", role: 'search') do %>
-                                        <div class="input-group">              
-                                            <%= text_field_tag :term, 
-                                                params[:term], 
-                                                id: 'jobs_search', 
-                                                autocomplete: :off, 
-                                                placeholder: 'Search', 
-                                                class: 'form-control' %>
-                                            <div class="input-group-btn search-panel">
-                                            <%= submit_tag 'Search', name: nil, class: "btn btn-outline-white btn-rounded info-color" %>
-                                            </div>
+<% content_for :title do %>Jobs
+    <% end %>
+        <div class="container-fluid p-top-2x">
+            <section class="section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mx-auto narrower">
+                            <div class="admin-panel">
+                                <div class="row m-b-0">
+                                    <div class="col-md-12">
+                                        <h3 class="h3-responsive center info-color white-text view" style="padding:7px;">Trending</h3>
+                                        <div class="">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <!-- <canvas id="sales" height="384" width="744" style="width: 744px; height: 384px;"></canvas> -->
+                                            <%= pie_chart Job.group(:title).count %>
                                         </div>
-                                    <% end %>
-                                </div>
-                                <div class="row card-block pt-3">
-                                    <table class="table table-fluid table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                        <th class="text-center">Title</th>
-                                        <th class="text-center">Company</th>
-                                        <th class="text-center">Website</th>
-                                        <th colspan="4" class="text-center">Actions</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody class="text-center">
-                                        <% @jobs.each do |job| %>
-                                        <tr>
-                                            <td><%= link_to job.title, job_path(job) %></td>
-                                            <td nowrap><%= link_to job.company, job_path(job) %></td>
-                                            <td nowrap><%= link_to job.url, job_path(job) %></td>                                            <td><%#= job.plot %></td>
-                                            <td><%= link_to '', job, class: "fa fa-eye" %></td>
-                                            <td><%= link_to '', edit_job_path(job), class: "fa fa-pencil text-warning" %></td>
-                                            <td><%= link_to '', job_path(job), method: :delete, class: "fa fa-trash text-danger" %></td>
-                                        </tr>
-                                        <% end %>
-                                    </tbody>
-                                    </table>
-                                    <div class="col-md-6">
-                                        <h4><span class="badge big-badge info-color">Categories</span></h4>
-                                        <% Category.all.each do |category| %>
-                                            <%= link_to category.name, category_path(category) %>
-                                        <% end %>
                                         <br>
-                                        
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="col-md-6 mx-auto">
+                                        <!--Job box-->
+                                        <% @jobs.each do |job| %>
+                                            <div class="author-box">
+                                                <!--Name-->
+                                                <h4 class="h4-responsive">
+                                                    <%= link_to job.title, job_path(job), class: "black-text", id:"jb-title" %>
+                                                </h4>
+                                                <div class="row">
+                                                    <!--Logo-->
+                                                    <!--Job Data-->
+                                                    <div class=" col-12">
+                                                        <div class="personal-sm">
+                                                            <i class="fa fa-building-o"> <%= link_to job.company, job_path(job), class: "grey-text" %></i>
+                                                            <i class="fa fa-map-marker"> <%= link_to job.city, job_path(job), class: "grey-text" %></i>
+                                                        </div>
+                                                        <p class="hidden-md-down">
+                                                            <%= simple_format(job.description, id:"personal-sm") %>
+                                                        </p>
+                                                        <div class="chip">
+                                                            <i class="fa fa-code"> C#&nbsp;Ruby&nbsp;Python</i>
+                                                        </div>
+                                                        <div class="chip">
+                                                            <i class="fa fa-graduation-cap"> Degree Required</i>
+                                                        </div>
+                                                        <div class="chip">
+                                                            <i class="fa fa-money"> Bg&nbsp;Estimate:&nbsp;$70,000</i>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="personal-sm">
+                                                            <%= link_to '', job, class: "fa fa-eye grey-text" %>
+                                                                <%= link_to '', job, class: "fa fa-share-alt grey-text" %>
+                                                                    <%= link_to '', job, class: "fa fa-star grey-text" %>
+                                                                    
+                                                        </div>
+                                                        <div class="date right">
+                                                            <i class="fa fa-calendar"> <%= time_ago_in_words(job.created_at) %></i>                                                            ago
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                        <!--/.Job box-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <% if current_user.favorites.present? %>
-        <section class="section section-intro">
-            <h2 class="mb-1 text-center">Saved Jobs</h2>
-            <div class="row">
-                <% Job.all.each do |job|%>
-                    <% job.favorite_jobs.each do |user|%>
-                        <div class="col-md-4 mb-r">
-                            <div class="card card-cascade narrower">
-                                <div class=" overlay hm-white-slight">
-                                <% if job.image? %>
-                                    <%= link_to image_tag(job.image_url), job_path(job) if job.image?  %>
-                                <% else %>
-                                    <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="jb-img" alt="">
-                                <% end %>
-                                    <a>
-                                        <div class="mask"></div>
-                                    </a>
-                                </div>
-                                <div class="card-block text-center">
-                                    <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
-
-                                    <!--Rating-->
-                                    <!--<ul class="rating">
+            </section>
+            <% if user_signed_in? %>
+                <section class="section section-intro">
+                    <h2 class="mb-1 text-center">Saved Jobs</h2>
+                    <div class="row">
+                        <% Job.all.each do |job|%>
+                            <% job.favorite_jobs.each do |user|%>
+                                <div class="col-md-4 mb-r">
+                                    <div class="card card-cascade narrower">
+                                        <div class=" overlay hm-white-slight">
+                                            <% if job.image? %>
+                                                <%= link_to image_tag(job.image_url), job_path(job) if job.image?  %>
+                                                    <% else %>
+                                                        <img src="http://m.tvserieshq.com/music/art/no-thumb.jpg" class="jb-img" alt="">
+                                                        <% end %>
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                        </div>
+                                        <div class="card-block text-center">
+                                            <h4 class="card-title"><strong><%= link_to(job.title.titleize, job_path(job)) %></strong></h4>
+                                            <!--Rating-->
+                                            <!--<ul class="rating">
                                         <div class="star-rating" data-score= <%#=  %> ></div>
                                     </ul> -->
-
-                                    <p class="card-text">
-                                        <%= truncate(job.description, length: 250) %>
-                                    </p>
-                                    <div class="card-footer">
-                                        <span class="left"><%= job.reviews.count %> <%= "reviews".pluralize(job.reviews.count) %> </span>                                    <span class="right">
+                                            <p class="card-text">
+                                                <%= truncate(job.description, length: 250) %>
+                                            </p>
+                                            <div class="card-footer">
+                                                <span class="left"><%= job.reviews.count %> <%= "reviews".pluralize(job.reviews.count) %> </span>                                                <span class="right">
                                         <%- unless current_user.favorite_jobs.exists?(id: @job_id) -%>
                                             <%= link_to '', favorite_jobs_path(job_id: @job), method: :post, class: "fa fa-star star" %>
                                         <%- else -%>
                                             <%= link_to '', favorite_job_path(@job), method: :delete, class: "fa fa-heart star" %>
                                         <%- end -%>
                                         </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    <% end %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </section>
                 <% end %>
-            </div>
-        </section>
-    <% end %>
-
-    
-    <div class="col-md-2 mx-auto">
-        <%#= will_paginate(@jobs, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-    </div>
-    <br>
-    <div class="center">
-        <%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
-    </div>
+                    <div class="col-md-2 mx-auto">
+                        <%#= will_paginate(@jobs, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+                    </div>
+                    <br>
+                    <div class="center">
+                        <%= link_to 'Post a new job', new_job_path, class: "btn btn-outline-white info-color btn-rounded" %>
+                    </div>

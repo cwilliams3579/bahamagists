@@ -11,12 +11,12 @@ Rails.application.routes.draw do
     end
     resources :reviews, except: [:show, :index]
   end
+  resources :favorite_jobs 
 
   resources :posts do
     resources :comments
   end
   
-  resources :favorite_jobs, only: [:create, :destroy]
   resources :tags, only: [:show]
   
   resources :categories

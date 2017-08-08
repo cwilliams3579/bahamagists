@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_job
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :check_user, only: [:edit, :update, :destroy]
-
+  load_and_authorize_resource :through => :current_user
 
   def new
     @review = Review.new
